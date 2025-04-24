@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesConfiguraciónAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vehiculos.html">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ventas.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="usuarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mensajes.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Mensajes</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="configuracion.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar en configuración...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Configuration Content -->
+            <section class="content-section" id="configuracion">
+                <div class="section-header">
+                    <h2>Configuración del Sistema</h2>
+                    <div class="header-actions">
+                        <button class="btn-save-all">
+                            <i class="fas fa-save"></i> Guardar Cambios
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Config Tabs -->
+                <div class="config-tabs">
+                    <button class="tab-btn active" data-tab="general">General</button>
+                    <button class="tab-btn" data-tab="empresa">Empresa</button>
+                    <button class="tab-btn" data-tab="pagos">Pagos</button>
+                    <button class="tab-btn" data-tab="correo">Correo</button>
+                    <button class="tab-btn" data-tab="api">API</button>
+                    <button class="tab-btn" data-tab="seguridad">Seguridad</button>
+                </div>
+                
+                <!-- Config Content -->
+                <div class="config-content">
+                    <!-- General Tab -->
+                    <div class="tab-pane active" id="general">
+                        <div class="config-card">
+                            <h3><i class="fas fa-globe"></i> Configuración General</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="site-name">Nombre del Sitio</label>
+                                    <input type="text" id="site-name" value="AutoMarket">
+                                </div>
+                                <div class="form-group">
+                                    <label for="site-url">URL del Sitio</label>
+                                    <input type="url" id="site-url" value="https://www.automarket.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="default-language">Idioma Predeterminado</label>
+                                    <select id="default-language">
+                                        <option value="es" selected>Español</option>
+                                        <option value="en">Inglés</option>
+                                        <option value="pt">Portugués</option>
+                                        <option value="fr">Francés</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="timezone">Zona Horaria</label>
+                                    <select id="timezone">
+                                        <option value="-5" selected>UTC-5:00 (Colombia, Perú)</option>
+                                        <option value="-6">UTC-6:00 (México Central)</option>
+                                        <option value="-3">UTC-3:00 (Argentina, Chile)</option>
+                                        <option value="0">UTC±0:00 (Londres)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="date-format">Formato de Fecha</label>
+                                    <select id="date-format">
+                                        <option value="d/m/Y" selected>DD/MM/AAAA</option>
+                                        <option value="m/d/Y">MM/DD/AAAA</option>
+                                        <option value="Y-m-d">AAAA-MM-DD</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="items-per-page">Elementos por página</label>
+                                    <input type="number" id="items-per-page" min="5" max="100" value="15">
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-image"></i> Logotipo y Favicon</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label>Logotipo Actual</label>
+                                    <div class="current-logo">
+                                        <img src="https://via.placeholder.com/200x80?text=AutoMarket+Logo" alt="Logo Actual">
+                                        <button class="btn-change-image">Cambiar Logotipo</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Favicon Actual</label>
+                                    <div class="current-favicon">
+                                        <img src="https://via.placeholder.com/32x32?text=AM" alt="Favicon Actual">
+                                        <button class="btn-change-image">Cambiar Favicon</button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="logo-width">Ancho del Logotipo (px)</label>
+                                    <input type="number" id="logo-width" min="100" max="500" value="200">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Empresa Tab -->
+                    <div class="tab-pane" id="empresa">
+                        <div class="config-card">
+                            <h3><i class="fas fa-building"></i> Información de la Empresa</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="company-name">Nombre Legal</label>
+                                    <input type="text" id="company-name" value="AutoMarket S.A.S.">
+                                </div>
+                                <div class="form-group">
+                                    <label for="commercial-name">Nombre Comercial</label>
+                                    <input type="text" id="commercial-name" value="AutoMarket">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-id">NIT/RUC</label>
+                                    <input type="text" id="company-id" value="900.123.456-7">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-address">Dirección</label>
+                                    <textarea id="company-address" rows="3">Av. Principal #123, Bogotá, Colombia</textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-phone">Teléfono</label>
+                                    <input type="tel" id="company-phone" value="+57 1 2345678">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-email">Email</label>
+                                    <input type="email" id="company-email" value="info@automarket.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-website">Sitio Web</label>
+                                    <input type="url" id="company-website" value="https://www.automarket.com">
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-file-invoice-dollar"></i> Información Fiscal</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="invoice-prefix">Prefijo Facturas</label>
+                                    <input type="text" id="invoice-prefix" value="FAC-">
+                                </div>
+                                <div class="form-group">
+                                    <label for="invoice-start">Número Inicial</label>
+                                    <input type="number" id="invoice-start" min="1" value="1001">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tax-rate">IVA/Tasa de Impuesto (%)</label>
+                                    <input type="number" id="tax-rate" min="0" max="50" step="0.1" value="19">
+                                </div>
+                                <div class="form-group">
+                                    <label for="invoice-footer">Pie de Página Facturas</label>
+                                    <textarea id="invoice-footer" rows="3">Gracias por su compra. Para reclamos o devoluciones, contactarnos dentro de los 5 días hábiles.</textarea>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Pagos Tab -->
+                    <div class="tab-pane" id="pagos">
+                        <div class="config-card">
+                            <h3><i class="fas fa-credit-card"></i> Métodos de Pago</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="cash-payment" checked>
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Efectivo</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="bank-transfer" checked>
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Transferencia Bancaria</span>
+                                    </label>
+                                    <div class="sub-options" id="bank-transfer-options">
+                                        <div class="form-group">
+                                            <label for="bank-name">Banco</label>
+                                            <input type="text" id="bank-name" value="Banco de Bogotá">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="account-type">Tipo de Cuenta</label>
+                                            <select id="account-type">
+                                                <option value="corriente" selected>Corriente</option>
+                                                <option value="ahorros">Ahorros</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="account-number">Número de Cuenta</label>
+                                            <input type="text" id="account-number" value="123-456789-01">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="account-holder">Titular de la Cuenta</label>
+                                            <input type="text" id="account-holder" value="AutoMarket S.A.S.">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="credit-card">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Tarjeta de Crédito</span>
+                                    </label>
+                                    <div class="sub-options" id="credit-card-options" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="payment-gateway">Pasarela de Pago</label>
+                                            <select id="payment-gateway">
+                                                <option value="">Seleccionar...</option>
+                                                <option value="payu">PayU</option>
+                                                <option value="stripe">Stripe</option>
+                                                <option value="paypal">PayPal</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="merchant-id">ID de Comercio</label>
+                                            <input type="text" id="merchant-id">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="api-key">API Key</label>
+                                            <input type="password" id="api-key">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="financing">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Financiamiento</span>
+                                    </label>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-percentage"></i> Comisiones</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="seller-commission">Comisión Vendedores (%)</label>
+                                    <input type="number" id="seller-commission" min="0" max="50" step="0.1" value="4">
+                                </div>
+                                <div class="form-group">
+                                    <label for="min-commission">Comisión Mínima ($)</label>
+                                    <input type="number" id="min-commission" min="0" value="100000">
+                                </div>
+                                <div class="form-group">
+                                    <label for="commission-payment-day">Día de Pago de Comisiones</label>
+                                    <select id="commission-payment-day">
+                                        <option value="1">1 de cada mes</option>
+                                        <option value="15" selected>15 de cada mes</option>
+                                        <option value="30">30 de cada mes</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Correo Tab -->
+                    <div class="tab-pane" id="correo">
+                        <div class="config-card">
+                            <h3><i class="fas fa-server"></i> Configuración SMTP</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="smtp-host">Servidor SMTP</label>
+                                    <input type="text" id="smtp-host" value="smtp.automarket.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-port">Puerto</label>
+                                    <input type="number" id="smtp-port" min="1" max="65535" value="587">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-encryption">Encriptación</label>
+                                    <select id="smtp-encryption">
+                                        <option value="tls" selected>TLS</option>
+                                        <option value="ssl">SSL</option>
+                                        <option value="none">Ninguna</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-username">Usuario</label>
+                                    <input type="text" id="smtp-username" value="notificaciones@automarket.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-password">Contraseña</label>
+                                    <input type="password" id="smtp-password" value="********">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-from">Email Remitente</label>
+                                    <input type="email" id="smtp-from" value="notificaciones@automarket.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="smtp-from-name">Nombre Remitente</label>
+                                    <input type="text" id="smtp-from-name" value="AutoMarket Notificaciones">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn-test-smtp">
+                                        <i class="fas fa-paper-plane"></i> Probar Configuración
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-envelope"></i> Plantillas de Correo</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="email-template-sale">Venta Completada</label>
+                                    <select id="email-template-sale">
+                                        <option value="default" selected>Plantilla Predeterminada</option>
+                                        <option value="custom">Personalizada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-template-contact">Contacto</label>
+                                    <select id="email-template-contact">
+                                        <option value="default" selected>Plantilla Predeterminada</option>
+                                        <option value="custom">Personalizada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-template-welcome">Bienvenida</label>
+                                    <select id="email-template-welcome">
+                                        <option value="default" selected>Plantilla Predeterminada</option>
+                                        <option value="custom">Personalizada</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn-edit-template">
+                                        <i class="fas fa-edit"></i> Editar Plantillas
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- API Tab -->
+                    <div class="tab-pane" id="api">
+                        <div class="config-card">
+                            <h3><i class="fas fa-code"></i> Configuración API</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="api-enabled" checked>
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">API Habilitada</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label for="api-key">API Key</label>
+                                    <div class="input-with-action">
+                                        <input type="password" id="api-key" value="ak_1234567890abcdef" readonly>
+                                        <button class="btn-copy" title="Copiar">
+                                            <i class="fas fa-copy"></i>
+                                        </button>
+                                        <button class="btn-regenerate" title="Regenerar">
+                                            <i class="fas fa-sync-alt"></i>
+                                        </button>
+                                    </div>
+                                    <small class="help-text">Esta clave permite acceso a los datos del sistema. Manténgala segura.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="api-rate-limit">Límite de Solicitudes (por minuto)</label>
+                                    <input type="number" id="api-rate-limit" min="1" max="1000" value="60">
+                                </div>
+                                <div class="form-group">
+                                    <label for="api-docs">Documentación API</label>
+                                    <div class="api-docs-link">
+                                        <a href="#" class="btn-view-docs">
+                                            <i class="fas fa-book"></i> Ver Documentación
+                                        </a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-plug"></i> Integraciones</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="google-analytics">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Google Analytics</span>
+                                    </label>
+                                    <div class="sub-options" id="google-analytics-options" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="ga-tracking-id">ID de Seguimiento</label>
+                                            <input type="text" id="ga-tracking-id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="facebook-pixel">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Facebook Pixel</span>
+                                    </label>
+                                    <div class="sub-options" id="facebook-pixel-options" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="fb-pixel-id">Pixel ID</label>
+                                            <input type="text" id="fb-pixel-id">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="recaptcha">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Google reCAPTCHA</span>
+                                    </label>
+                                    <div class="sub-options" id="recaptcha-options" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="recaptcha-site-key">Site Key</label>
+                                            <input type="text" id="recaptcha-site-key">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="recaptcha-secret-key">Secret Key</label>
+                                            <input type="password" id="recaptcha-secret-key">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <!-- Seguridad Tab -->
+                    <div class="tab-pane" id="seguridad">
+                        <div class="config-card">
+                            <h3><i class="fas fa-shield-alt"></i> Configuración de Seguridad</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="https-enabled" checked>
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Forzar HTTPS</span>
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="2fa-enabled">
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Autenticación de Dos Factores</span>
+                                    </label>
+                                    <div class="sub-options" id="2fa-options" style="display: none;">
+                                        <div class="form-group">
+                                            <label for="2fa-method">Método</label>
+                                            <select id="2fa-method">
+                                                <option value="email">Email</option>
+                                                <option value="authenticator">App Autenticador</option>
+                                                <option value="sms">SMS</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="password-strength">Fortaleza Mínima de Contraseñas</label>
+                                    <select id="password-strength">
+                                        <option value="low">Baja (6+ caracteres)</option>
+                                        <option value="medium" selected>Media (8+ con mayúsculas/números)</option>
+                                        <option value="high">Alta (10+ con símbolos)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="login-attempts">Intentos de Login Permitidos</label>
+                                    <input type="number" id="login-attempts" min="1" max="10" value="5">
+                                </div>
+                                <div class="form-group">
+                                    <label for="session-timeout">Tiempo de Inactividad (minutos)</label>
+                                    <input type="number" id="session-timeout" min="5" max="480" value="30">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ip-restriction">Restricción por IP</label>
+                                    <textarea id="ip-restriction" rows="3" placeholder="Ejemplo: 192.168.1.1, 201.120.45.0/24"></textarea>
+                                    <small class="help-text">Ingrese direcciones IP permitidas, separadas por comas. Dejar vacío para permitir cualquier IP.</small>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <div class="config-card">
+                            <h3><i class="fas fa-database"></i> Copias de Seguridad</h3>
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label class="toggle-switch">
+                                        <input type="checkbox" id="auto-backup" checked>
+                                        <span class="slider"></span>
+                                        <span class="toggle-label">Copias Automáticas</span>
+                                    </label>
+                                    <div class="sub-options" id="auto-backup-options">
+                                        <div class="form-group">
+                                            <label for="backup-frequency">Frecuencia</label>
+                                            <select id="backup-frequency">
+                                                <option value="daily">Diario</option>
+                                                <option value="weekly" selected>Semanal</option>
+                                                <option value="monthly">Mensual</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="backup-time">Hora de Ejecución</label>
+                                            <input type="time" id="backup-time" value="02:00">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="backup-retention">Retención (días)</label>
+                                            <input type="number" id="backup-retention" min="1" max="365" value="30">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label>Última Copia</label>
+                                    <div class="last-backup-info">
+                                        <span>backup_20231015_0200.zip - 15/10/2023 02:15</span>
+                                        <button class="btn-download-backup">
+                                            <i class="fas fa-download"></i> Descargar
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn-backup-now">
+                                        <i class="fas fa-save"></i> Crear Copia Ahora
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Editar Plantilla -->
+    <div class="modal" id="editTemplateModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Editar Plantilla de Correo</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="template-form">
+                    <div class="form-group">
+                        <label for="template-name">Plantilla</label>
+                        <select id="template-name">
+                            <option value="sale">Venta Completada</option>
+                            <option value="contact">Contacto</option>
+                            <option value="welcome">Bienvenida</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="template-subject">Asunto</label>
+                        <input type="text" id="template-subject" value="Gracias por su compra en AutoMarket">
+                    </div>
+                    <div class="form-group">
+                        <label for="template-editor">Contenido</label>
+                        <div class="editor-toolbar">
+                            <button type="button" class="btn-editor" data-command="bold"><i class="fas fa-bold"></i></button>
+                            <button type="button" class="btn-editor" data-command="italic"><i class="fas fa-italic"></i></button>
+                            <button type="button" class="btn-editor" data-command="insertunorderedlist"><i class="fas fa-list-ul"></i></button>
+                            <button type="button" class="btn-editor" data-command="insertorderedlist"><i class="fas fa-list-ol"></i></button>
+                            <button type="button" class="btn-editor" data-command="createlink"><i class="fas fa-link"></i></button>
+                            <button type="button" class="btn-editor" data-command="insertimage"><i class="fas fa-image"></i></button>
+                        </div>
+                        <div id="template-editor" contenteditable="true">
+                            <p>Estimado/a {cliente_nombre},</p>
+                            <p>Gracias por su compra en AutoMarket. A continuación los detalles de su transacción:</p>
+                            <ul>
+                                <li>Vehículo: {vehiculo_marca_modelo}</li>
+                                <li>Precio: {vehiculo_precio}</li>
+                                <li>Fecha: {fecha_venta}</li>
+                            </ul>
+                            <p>Para cualquier consulta, no dude en contactarnos.</p>
+                            <p>Atentamente,<br>El equipo de AutoMarket</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Variables Disponibles</label>
+                        <div class="template-variables">
+                            <span class="variable-tag">{cliente_nombre}</span>
+                            <span class="variable-tag">{cliente_email}</span>
+                            <span class="variable-tag">{vehiculo_marca_modelo}</span>
+                            <span class="variable-tag">{vehiculo_precio}</span>
+                            <span class="variable-tag">{fecha_venta}</span>
+                            <span class="variable-tag">{numero_factura}</span>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-save-template">
+                            <i class="fas fa-save"></i> Guardar Plantilla
+                        </button>
+                        <button type="button" class="btn-preview-template">
+                            <i class="fas fa-eye"></i> Vista Previa
+                        </button>
+                        <button type="button" class="btn-cancel modal-close">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

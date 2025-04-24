@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRRT Motors</title>
+    <link rel="stylesheet" href="StylesLRRT-Interfaz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>LRRT Motors</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#vehiculos">Vehículos</a></li>
+                <li><a href="#vender">Vender</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <button id="user-login-btn"><a href="IndexLRRT-Login(User).html">Iniciar Sesión (Usuario)</a></button>
+            <button id="admin-login-btn"><a href="IndexLRRT-Login(Admin).html">Iniciar Sesión (Administrador)</a></button>
+            <button id="user-register-btn"><a href="IndexLRRT-Register(User).html">Registrate (Usuario)</a></button>
+            <button id="admin-register-btn"><a href="IndexLRRT-Register(Admin).html">Registrate (Administrador)</a></button>
+        </div>
+    </header>
+
+    <main>
+        <section id="buscador">
+            <div class="search-container">
+                <input type="text" placeholder="Buscar vehículo...">
+                <select id="marca">
+                    <option value="">Todas las marcas</option>
+                    <option value="toyota">Toyota</option>
+                    <option value="ford">Ford</option>
+                    <option value="chevrolet">Chevrolet</option>
+                    <option value="renault">Renault</option>
+                    <option value="nissan">Nissan</option>
+                    <option value="honda">Honda</option>
+                    <option value="hyundai">Hyundai</option>
+                    <option value="kia">Kia</option>
+                    <option value="mazda">Mazda</option>
+                    <option value="susuki">Susuki</option>
+                    <option value="mercedes">Mercedes-Benz</option>
+                    <option value="audi">Audi</option>
+                    <option value="bmw">BMW</option>
+                    <option value="volkswagen">Volkswagen</option>
+                </select>
+                <select id="precio">
+                    <option value="">Rango de precio</option>
+                    <option value="0-20'000.000">COP 0 - COP 20'000,000</option>
+                    <option value="20'000.000-50'000.000">COP 20'000,000 - COP 50'000,000</option>
+                    <option value="50'000.000-100'000.000">COP 50'000.000 - COP 100'000.000</option>
+                </select>
+                <button id="search-btn">Buscar</button>
+            </div>
+        </section>
+
+        <section id="destacados">
+            <h2>Vehículos Destacados</h2>
+            <div class="vehiculos-grid" id="vehiculos-container">
+                <!-- Los vehículos se cargarán aquí con JavaScript -->
+            </div>
+        </section>
+
+        <section id="formulario-vender" class="hidden">
+            <h2>Vender tu Vehículo</h2>
+            <form id="vender-form">
+                <div class="form-group">
+                    <label for="marca-vehiculo">Marca:</label>
+                    <input type="text" id="marca-vehiculo" required>
+                </div>
+                <div class="form-group">
+                    <label for="modelo-vehiculo">Modelo:</label>
+                    <input type="text" id="modelo-vehiculo" required>
+                </div>
+                <div class="form-group">
+                    <label for="ano-vehiculo">Año:</label>
+                    <input type="number" id="ano-vehiculo" min="1900" max="2023" required>
+                </div>
+                <div class="form-group">
+                    <label for="precio-vehiculo">Precio ($):</label>
+                    <input type="number" id="precio-vehiculo" min="0" required>
+                </div>
+                <div class="form-group">
+                    <label for="imagen-vehiculo">Imagen (URL):</label>
+                    <input type="url" id="imagen-vehiculo">
+                </div>
+                <button type="submit">Publicar Vehículo</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 LRRT Motors - Todos los derechos reservados</p>
+    </footer>
+
+<div id="admin-panel" class="hidden">
+    <div class="admin-header">
+        <h2>Panel de Administración</h2>
+        <button id="logout-btn">Cerrar Sesión</button>
+    </div>
+    <div class="admin-content">
+        <h3>Vehículos Publicados</h3>
+        <div class="admin-vehiculos-list" id="admin-vehiculos-list">
+            <!-- Lista de vehículos para administrar -->
+        </div>
+    </div>
+</div>
+
+    <script src="ScriptLRRT-Interfaz.js"></script>
+</body>
+</html>

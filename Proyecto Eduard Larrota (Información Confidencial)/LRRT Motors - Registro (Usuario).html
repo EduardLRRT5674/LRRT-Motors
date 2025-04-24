@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Registro</title>
+            <link rel="stylesheet"href="EstiloRegistro.css">
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+            </style>
+        </head>
+        <body>
+            <section class="form-register">
+                <h1>Registro</h1>
+                <label for="Identificación">Identificación: </label><br>
+                <input type="number" name="Identificación" id="Identificación" placeholder="Identificación" requided><br>
+                <label>Usuario: </label><br>
+                <input type="text" name="Usuario" id="Usuario" placeholder="Usuario" required><br>
+                <label>Nombres: </label><br>
+                <input type="text" name="Nombres" id="Nombres" placeholder="Nombres" required><br>
+                <label>Apellidos: </label><br>
+                <input type="text" name="Apellidos" id="Apellidos" placeholder="Apellidos" required><br>
+                <label>Numero de celular: </label><br>
+                <input type="number" name="Numero de celular" id="Numero de celular" placeholder="Numero de celular" required><br>
+                <label>Correo electronico: </label><br>
+                <input type="text" name="Correo electronico" id="Correo electronico" placeholder="Correo electronico" required><br>
+                <label>Sexo: </label><br>
+                <select name="" id="">
+                    <option value="">-Seleccione-</option>
+                    <option value="" required>Masculino</option>
+                    <option value="" required>Femenino</option>
+                </select><br>
+                <label>Estado civil: </label><br>
+                <select name="" id="">
+                    <option value="">-Seleccione-</option>
+                    <option value="" required>Soltero/a</option>
+                    <option value="" required>Casado/a</option>
+                    <option value="" required>Divorciado/a</option>
+                    <option value="" required>Viudo/a</option>
+                </select><br>
+                <label>Nivel de estudios: </label><br>
+                <select name="" id="">
+                    <option value="">-Seleccione-</option>
+                    <option value="" required>Primaria</option>
+                    <option value="" required>Secundaria</option>
+                    <option value="" required>Técnico</option>
+                    <option value="" required>Tecnólogo</option>
+                    <option value="" required>Universitario</option>
+                </select><br>
+                <label>Ocupación: </label><br>
+                <input type="text" name="Ocupación" id="Ocupación" placeholder="Ocupación" required><br>
+                <label>Antiguedad: </label><br>
+                <input type="text" name="Antiguedad" id="Antiguedad" placeholder="Antiguedad" required><br>
+                <label>Ingresos: </label><br>
+                <input type="number" name="Ingresos" id="Ingresos" placeholder="Ingresos" required><br>
+                <label>Contraseña: </label><br>
+                <input type="password" name="Contraseña" id="Contraseña" placeholder="Contraseña" required>
+                <label>Confirmar contraseña: </label>
+                <input type="password" name="Confirmar contraseña" id="Confirmar contraseña" placeholder="Confirmar contraseña" required>
+
+                <div class="terms-conditions">
+                    <label><input type="checkbox">Estoy de acuerdo con</label>
+                    <a href="#">terminos y condiciones</a>
+                </div>
+
+                <button type="submit" class="button">Registrar</button>
+
+                <div class="login-link">
+                    <p>¿Ya tiene cuenta? <a href="#"> Iniciar sesion</a></p>
+                </div>
+            </section>
+        </body>
+    </html>

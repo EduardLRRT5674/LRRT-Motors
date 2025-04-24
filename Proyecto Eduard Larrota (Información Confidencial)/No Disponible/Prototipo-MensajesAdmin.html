@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesMensajesAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vehiculos.html">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ventas.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="usuarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="mensajes.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Mensajes</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracion.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar mensajes...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Messages Content -->
+            <section class="content-section" id="mensajes">
+                <div class="section-header">
+                    <h2>Bandeja de Mensajes</h2>
+                    <div class="header-actions">
+                        <button class="btn-mark-all">
+                            <i class="fas fa-check-double"></i> Marcar todos como leídos
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters-card">
+                    <div class="filter-group">
+                        <label for="filter-folder">Carpeta:</label>
+                        <select id="filter-folder">
+                            <option value="inbox">Bandeja de entrada</option>
+                            <option value="unread">No leídos</option>
+                            <option value="sent">Enviados</option>
+                            <option value="archived">Archivados</option>
+                            <option value="trash">Papelera</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-type">Tipo:</label>
+                        <select id="filter-type">
+                            <option value="">Todos</option>
+                            <option value="contact">Contacto</option>
+                            <option value="vehicle">Consulta vehículo</option>
+                            <option value="sale">Consulta venta</option>
+                            <option value="other">Otros</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-date">Fecha:</label>
+                        <select id="filter-date">
+                            <option value="">Todas las fechas</option>
+                            <option value="today">Hoy</option>
+                            <option value="week">Esta semana</option>
+                            <option value="month">Este mes</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-filter">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                </div>
+                
+                <!-- Lista de Mensajes -->
+                <div class="messages-container">
+                    <!-- Lista de mensajes -->
+                    <div class="messages-list">
+                        <div class="message-item unread">
+                            <div class="message-checkbox">
+                                <input type="checkbox" id="msg-1">
+                            </div>
+                            <div class="message-sender">
+                                <img src="https://via.placeholder.com/40" alt="Juan Pérez">
+                                <span>Juan Pérez</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-subject">
+                                    <span class="message-tag vehicle">Vehículo</span>
+                                    <strong>Consulta sobre Toyota Corolla 2023</strong>
+                                </div>
+                                <p class="message-preview">Hola, estoy interesado en el Toyota Corolla que tienen publicado. ¿Podrían darme más información sobre...</p>
+                            </div>
+                            <div class="message-date">
+                                <span>15 Oct</span>
+                                <span class="message-time">14:30</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action btn-star" title="Destacar">
+                                    <i class="far fa-star"></i>
+                                </button>
+                                <button class="btn-action btn-archive" title="Archivar">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-action btn-delete" title="Eliminar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item unread">
+                            <div class="message-checkbox">
+                                <input type="checkbox" id="msg-2">
+                            </div>
+                            <div class="message-sender">
+                                <img src="https://via.placeholder.com/40" alt="María Gómez">
+                                <span>María Gómez</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-subject">
+                                    <span class="message-tag contact">Contacto</span>
+                                    <strong>Solicitud de información general</strong>
+                                </div>
+                                <p class="message-preview">Buenos días, me gustaría recibir información sobre sus servicios de financiamiento para la compra de...</p>
+                            </div>
+                            <div class="message-date">
+                                <span>14 Oct</span>
+                                <span class="message-time">10:15</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action btn-star" title="Destacar">
+                                    <i class="far fa-star"></i>
+                                </button>
+                                <button class="btn-action btn-archive" title="Archivar">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-action btn-delete" title="Eliminar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item starred">
+                            <div class="message-checkbox">
+                                <input type="checkbox" id="msg-3">
+                            </div>
+                            <div class="message-sender">
+                                <img src="https://via.placeholder.com/40" alt="Carlos Rodríguez">
+                                <span>Carlos Rodríguez</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-subject">
+                                    <span class="message-tag sale">Venta</span>
+                                    <strong>Re: Oferta por Ford F-150</strong>
+                                </div>
+                                <p class="message-preview">Gracias por su respuesta. ¿Sería posible agendar una cita para ver el vehículo este fin de semana?</p>
+                            </div>
+                            <div class="message-date">
+                                <span>12 Oct</span>
+                                <span class="message-time">16:45</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action btn-star" title="Destacar">
+                                    <i class="fas fa-star"></i>
+                                </button>
+                                <button class="btn-action btn-archive" title="Archivar">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-action btn-delete" title="Eliminar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item">
+                            <div class="message-checkbox">
+                                <input type="checkbox" id="msg-4">
+                            </div>
+                            <div class="message-sender">
+                                <img src="https://via.placeholder.com/40" alt="Ana López">
+                                <span>Ana López</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-subject">
+                                    <span class="message-tag other">Otros</span>
+                                    <strong>Feedback sobre el servicio</strong>
+                                </div>
+                                <p class="message-preview">Quiero felicitarlos por el excelente servicio que recibí al comprar mi vehículo la semana pasada...</p>
+                            </div>
+                            <div class="message-date">
+                                <span>10 Oct</span>
+                                <span class="message-time">09:20</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action btn-star" title="Destacar">
+                                    <i class="far fa-star"></i>
+                                </button>
+                                <button class="btn-action btn-archive" title="Archivar">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-action btn-delete" title="Eliminar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item">
+                            <div class="message-checkbox">
+                                <input type="checkbox" id="msg-5">
+                            </div>
+                            <div class="message-sender">
+                                <img src="https://via.placeholder.com/40" alt="Luis Martínez">
+                                <span>Luis Martínez</span>
+                            </div>
+                            <div class="message-content">
+                                <div class="message-subject">
+                                    <span class="message-tag vehicle">Vehículo</span>
+                                    <strong>Pregunta sobre garantía</strong>
+                                </div>
+                                <p class="message-preview">Buenas tardes, me interesa saber qué tipo de garantía ofrecen para los vehículos usados que...</p>
+                            </div>
+                            <div class="message-date">
+                                <span>08 Oct</span>
+                                <span class="message-time">11:10</span>
+                            </div>
+                            <div class="message-actions">
+                                <button class="btn-action btn-star" title="Destacar">
+                                    <i class="far fa-star"></i>
+                                </button>
+                                <button class="btn-action btn-archive" title="Archivar">
+                                    <i class="fas fa-archive"></i>
+                                </button>
+                                <button class="btn-action btn-delete" title="Eliminar">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Vista de mensaje seleccionado -->
+                    <div class="message-view">
+                        <div class="no-message-selected">
+                            <i class="fas fa-envelope-open-text"></i>
+                            <p>Selecciona un mensaje para leerlo</p>
+                        </div>
+                        
+                        <div class="message-detail" style="display: none;">
+                            <div class="message-header">
+                                <div class="message-header-top">
+                                    <h3 class="message-subject">Consulta sobre Toyota Corolla 2023</h3>
+                                    <div class="message-tags">
+                                        <span class="message-tag vehicle">Vehículo</span>
+                                        <span class="message-status unread">No leído</span>
+                                    </div>
+                                </div>
+                                <div class="message-sender-info">
+                                    <img src="https://via.placeholder.com/50" alt="Juan Pérez">
+                                    <div class="sender-details">
+                                        <div class="sender-name">Juan Pérez <span class="sender-email">&lt;juan.perez@example.com&gt;</span></div>
+                                        <div class="message-date-full">Enviado el 15 de Octubre de 2023 a las 14:30</div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="message-body">
+                                <p>Estimado equipo de AutoMarket,</p>
+                                
+                                <p>Me pongo en contacto con ustedes porque estoy muy interesado en el Toyota Corolla 2023 que tienen publicado en su sitio web (ID: #AM-125).</p>
+                                
+                                <p>Me gustaría saber si podrían proporcionarme la siguiente información:</p>
+                                
+                                <ul>
+                                    <li>¿El precio publicado de $25,990 es negociable?</li>
+                                    <li>¿Tienen opciones de financiamiento disponibles?</li>
+                                    <li>¿Podría agendar una prueba de conducción?</li>
+                                    <li>¿El vehículo incluye algún tipo de garantía extendida?</li>
+                                </ul>
+                                
+                                <p>Además, me gustaría saber si tienen disponible el vehículo en color blanco, ya que en las fotos aparece en gris.</p>
+                                
+                                <p>Quedo atento a su respuesta. Pueden contactarme por este medio o directamente a mi teléfono: +1 234 567 890.</p>
+                                
+                                <p>Saludos cordiales,</p>
+                                <p>Juan Pérez</p>
+                            </div>
+                            
+                            <div class="message-actions">
+                                <button class="btn-reply">
+                                    <i class="fas fa-reply"></i> Responder
+                                </button>
+                                <button class="btn-reply-all">
+                                    <i class="fas fa-reply-all"></i> Responder a todos
+                                </button>
+                                <button class="btn-forward">
+                                    <i class="fas fa-share"></i> Reenviar
+                                </button>
+                                <button class="btn-archive">
+                                    <i class="fas fa-archive"></i> Archivar
+                                </button>
+                                <button class="btn-delete">
+                                    <i class="fas fa-trash"></i> Eliminar
+                                </button>
+                            </div>
+                            
+                            <div class="message-reply" style="display: none;">
+                                <div class="reply-header">
+                                    <h4>Responder mensaje</h4>
+                                    <button class="btn-close-reply">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <form class="reply-form">
+                                    <div class="form-group">
+                                        <label for="reply-to">Para:</label>
+                                        <input type="text" id="reply-to" value="Juan Pérez &lt;juan.perez@example.com&gt;" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reply-subject">Asunto:</label>
+                                        <input type="text" id="reply-subject" value="Re: Consulta sobre Toyota Corolla 2023">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="reply-message">Mensaje:</label>
+                                        <textarea id="reply-message" rows="6"></textarea>
+                                    </div>
+                                    <div class="form-actions">
+                                        <button type="submit" class="btn-send">
+                                            <i class="fas fa-paper-plane"></i> Enviar
+                                        </button>
+                                        <button type="button" class="btn-cancel-reply">
+                                            Cancelar
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Nuevo Mensaje -->
+    <div class="modal" id="newMessageModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Nuevo Mensaje</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="message-form">
+                    <div class="form-group">
+                        <label for="message-to">Para:</label>
+                        <input type="text" id="message-to" placeholder="Ingrese destinatario(s)">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-cc">CC:</label>
+                        <input type="text" id="message-cc" placeholder="Ingrese copia a">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-subject">Asunto:</label>
+                        <input type="text" id="message-subject" placeholder="Asunto del mensaje">
+                    </div>
+                    <div class="form-group">
+                        <label for="message-body">Mensaje:</label>
+                        <textarea id="message-body" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="message-attachments">Adjuntos:</label>
+                        <input type="file" id="message-attachments" multiple>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-send">
+                            <i class="fas fa-paper-plane"></i> Enviar
+                        </button>
+                        <button type="button" class="btn-save-draft">
+                            <i class="fas fa-save"></i> Guardar borrador
+                        </button>
+                        <button type="button" class="btn-cancel modal-close">
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

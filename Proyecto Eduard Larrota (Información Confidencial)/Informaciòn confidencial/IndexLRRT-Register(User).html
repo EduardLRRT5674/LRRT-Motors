@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Usuario</title>
+    <link rel="stylesheet" href="StylesLRRT-Register(User).css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Usuario</h1>
+        <form id="registroForm">
+            <div class="form-section">
+                <h2>Información Personal</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nombres">Nombres</label>
+                        <input type="text" id="nombres" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="tipoIdentificacion">Tipo de Identificación</label>
+                        <select id="tipoIdentificacion" required>
+                            <option value="">Seleccione</option>
+                            <option value="cedulaciudadanía">Cédula de ciudadanía</option>
+                            <option value="cedulaextrajera">Cédula extranjera</option>
+                            <option value="tarjetaidentidad">Targeta de identidad</option>
+                            <option value="pasaporte">Pasaporte</option>
+                            <option value="dni">DNI</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="numeroIdentificacion">Número de Identificación</label>
+                        <input type="text" id="numeroIdentificacion" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fechaNacimiento">Fecha de Nacimiento</label>
+                        <input type="date" id="fechaNacimiento" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sexo">Sexo*</label>
+                        <select id="sexo" required>
+                            <option value="">Seleccione</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="estadoCivil">Estado Civil</label>
+                        <select id="estadoCivil" required>
+                            <option value="">Seleccione</option>
+                            <option value="soltero">Soltero/a</option>
+                            <option value="casado">Casado/a</option>
+                            <option value="divorciado">Divorciado/a</option>
+                            <option value="viudo">Viudo/a</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información Académica y Laboral</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="nivelEstudios">Nivel de Estudios</label>
+                        <select id="nivelEstudios" required>
+                            <option value="">Seleccione</option>
+                            <option value="primaria">Primaria</option>
+                            <option value="secundaria">Secundaria</option>
+                            <option value="tecnico">Técnico</option>
+                            <option value="tecnologo">Técnologo</option>
+                            <option value="professional">Profesional</option>
+                            <option value="universitario">Universitario</option>
+                            <option value="postgrado">Postgrado</option>
+                            <option value="ninguno">Ninguno</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ocupacion">Ocupación</label>
+                        <input type="text" id="ocupacion" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="antiguedad">Antigüedad (años)</label>
+                        <input type="number" id="antiguedad" min="0" max="50">
+                    </div>
+                    <div class="form-group">
+                        <label for="ingresos">Ingresos Mensuales (COP)</label>
+                        <input type="number" id="ingresos" min="0" step="100">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Información de Contacto</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Correo Electrónico</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h2>Credenciales de Acceso</h2>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="usuario">Nombre de Usuario</label>
+                        <input type="text" id="usuario" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" id="password" required minlength="8">
+                        <small>Mínimo 8 caracteres con números y símbolos</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirmar Contraseña</label>
+                        <input type="password" id="confirmPassword" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-registro">Registrarse</button>
+            </div>
+        </form>
+    </div>
+    <script src="ScriptLRRT-Register(User).js"></script>
+</body>
+</html>

@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configuración - Admin LRRt Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Settings-Company(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li class="active"><a href="IndexLRRT-Settings(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Configuración del Sistema</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">1</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Configuration Content -->
+            <div class="content-area">
+                <div class="config-tabs">
+                    <div class="tabs-header">
+                        <button class="tab-btn" data-tab="general"><i class="fas fa-sliders-h"></i> General</button>
+                        <button class="tab-btn active" data-tab="empresa"><i class="fas fa-building"></i> Empresa</button>
+                        <button class="tab-btn" data-tab="ventas"><i class="fas fa-chart-line"></i> Ventas</button>
+                        <button class="tab-btn" data-tab="usuarios"><i class="fas fa-users-cog"></i> Usuarios</button>
+                        <button class="tab-btn" data-tab="api"><i class="fas fa-plug"></i> API</button>
+                        <button class="tab-btn" data-tab="backup"><i class="fas fa-database"></i> Backup</button>
+                    </div>
+                    
+                    <div class="tabs-content">
+                        <!-- General Tab -->
+                        <div id="general-tab" class="tab-pane">
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="system-name">Nombre del Sistema</label>
+                                    <input type="text" id="system-name" value="LRRT Motors">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="timezone">Zona Horaria</label>
+                                    <select id="timezone">
+                                        <option value="-5">UTC-5:00 (Colombia, Perú)</option>
+                                        <option value="-6">UTC-6:00 (México Central)</option>
+                                        <option value="-3">UTC-3:00 (Argentina, Chile)</option>
+                                        <option value="-4">UTC-4:00 (Bolivia, Venezuela)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="date-format">Formato de Fecha</label>
+                                    <select id="date-format">
+                                        <option value="dd/mm/yyyy">DD/MM/AAAA</option>
+                                        <option value="mm/dd/yyyy">MM/DD/AAAA</option>
+                                        <option value="yyyy-mm-dd">AAAA-MM-DD</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="currency">Moneda</label>
+                                    <select id="currency">
+                                        <option value="USD">Dólar Estadounidense ($)</option>
+                                        <option value="MXN">Peso Mexicano ($)</option>
+                                        <option value="COP">Peso Colombiano ($)</option>
+                                        <option value="ARS">Peso Argentino ($)</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="language">Idioma</label>
+                                    <select id="language">
+                                        <option value="es">Español</option>
+                                        <option value="en">Inglés</option>
+                                        <option value="pt">Portugués</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="theme">Tema</label>
+                                    <select id="theme">
+                                        <option value="light">Claro</option>
+                                        <option value="dark">Oscuro</option>
+                                        <option value="blue">Azul</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-save">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Empresa Tab -->
+                        <div id="empresa-tab" class="tab-pane active">
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="company-name">Nombre de la Empresa</label>
+                                    <input type="text" id="company-name" value="LRRT Motors">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-rfc">RFC/RUC/NIT</label>
+                                    <input type="text" id="company-rfc" value="AMK123456789">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-address">Dirección</label>
+                                    <input type="text" id="company-address" value="Av. Principal 123, Ciudad">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-phone">Teléfono</label>
+                                    <input type="tel" id="company-phone" value="+1 234 567 890">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-email">Email</label>
+                                    <input type="email" id="company-email" value="info@lrrtmotors.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="company-logo">Logo</label>
+                                    <div class="logo-upload">
+                                        <img src="https://via.placeholder.com/150" alt="Logo Empresa" id="logo-preview">
+                                        <input type="file" id="company-logo" accept="image/*">
+                                        <label for="company-logo" class="btn btn-upload">Cambiar Logo</label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-save">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Ventas Tab -->
+                        <div id="ventas-tab" class="tab-pane">
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="default-commission">Comisión por Defecto (%)</label>
+                                    <input type="number" id="default-commission" min="0" max="100" step="0.1" value="3.0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="tax-rate">Tasa de Impuesto (%)</label>
+                                    <input type="number" id="tax-rate" min="0" max="100" step="0.1" value="16.0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="invoice-series">Serie de Facturación</label>
+                                    <input type="text" id="invoice-series" value="AMK">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="invoice-start">Número Inicial Factura</label>
+                                    <input type="number" id="invoice-start" min="1" value="1001">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="payment-methods">Métodos de Pago</label>
+                                    <div class="checkboxes">
+                                        <label>
+                                            <input type="checkbox" name="payment-methods" value="cash" checked> Efectivo
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="payment-methods" value="transfer" checked> Transferencia
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="payment-methods" value="credit" checked> Crédito
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="payment-methods" value="financing"> Financiamiento
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-save">Guardar Cambios</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Usuarios Tab -->
+                        <div id="usuarios-tab" class="tab-pane">
+                            <div class="users-management">
+                                <div class="users-list">
+                                    <div class="list-header">
+                                        <h4>Usuarios del Sistema</h4>
+                                        <button class="btn btn-add-user"><i class="fas fa-plus"></i> Agregar Usuario</button>
+                                    </div>
+                                    
+                                    <div class="user-search">
+                                        <input type="text" placeholder="Buscar usuarios...">
+                                        <button class="btn btn-search"><i class="fas fa-search"></i></button>
+                                    </div>
+                                    
+                                    <div class="users-table">
+                                        <div class="user-item header">
+                                            <div class="user-name">Nombre</div>
+                                            <div class="user-email">Email</div>
+                                            <div class="user-role">Rol</div>
+                                            <div class="user-status">Estado</div>
+                                            <div class="user-actions">Acciones</div>
+                                        </div>
+                                        
+                                        <div class="user-item">
+                                            <div class="user-name">
+                                                <div class="user-avatar">
+                                                    <img src="vjuwsmnbvez.png" alt="Admin">
+                                                </div>
+                                                <span>Administrador</span>
+                                            </div>
+                                            <div class="user-email">admin@lrrtmotors.com</div>
+                                            <div class="user-role"><span class="badge admin">Administrador</span></div>
+                                            <div class="user-status"><span class="badge active">Activo</span></div>
+                                            <div class="user-actions">
+                                                <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                                                <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Más usuarios... -->
+                                    </div>
+                                </div>
+                                
+                                <div class="user-details">
+                                    <h4>Detalles del Usuario</h4>
+                                    <form class="user-form">
+                                        <div class="form-group">
+                                            <label for="user-name">Nombre Completo</label>
+                                            <input type="text" id="user-name" required>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="user-email">Email</label>
+                                            <input type="email" id="user-email" required>
+                                        </div>
+                                        
+                                        <div class="form-row">
+                                            <div class="form-group">
+                                                <label for="user-role">Rol</label>
+                                                <select id="user-role" required>
+                                                    <option value="admin">Administrador</option>
+                                                    <option value="manager">Gerente</option>
+                                                    <option value="seller">Vendedor</option>
+                                                    <option value="inventory">Inventario</option>
+                                                </select>
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="user-status">Estado</label>
+                                                <select id="user-status" required>
+                                                    <option value="active">Activo</option>
+                                                    <option value="inactive">Inactivo</option>
+                                                    <option value="suspended">Suspendido</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="user-password">Contraseña</label>
+                                            <input type="password" id="user-password">
+                                            <small class="form-text">Dejar en blanco para no cambiar</small>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="user-permissions">Permisos Especiales</label>
+                                            <div class="checkboxes">
+                                                <label>
+                                                    <input type="checkbox" name="permissions" value="reports"> Reportes
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="permissions" value="exports"> Exportar Datos
+                                                </label>
+                                                <label>
+                                                    <input type="checkbox" name="permissions" value="config"> Configuración
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-save">Guardar Usuario</button>
+                                            <button type="button" class="btn btn-cancel">Cancelar</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- API Tab -->
+                        <div id="api-tab" class="tab-pane">
+                            <form class="config-form">
+                                <div class="form-group">
+                                    <label for="api-status">Estado de la API</label>
+                                    <select id="api-status">
+                                        <option value="enabled">Habilitada</option>
+                                        <option value="disabled">Deshabilitada</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="api-key">API Key</label>
+                                    <div class="input-group">
+                                        <input type="text" id="api-key" value="ak_123456789abcdef" readonly>
+                                        <button class="btn btn-copy"><i class="fas fa-copy"></i></button>
+                                        <button class="btn btn-generate">Generar Nueva</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="api-access">Acceso API</label>
+                                    <div class="checkboxes">
+                                        <label>
+                                            <input type="checkbox" name="api-access" value="read" checked> Lectura
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="api-access" value="write"> Escritura
+                                        </label>
+                                        <label>
+                                            <input type="checkbox" name="api-access" value="delete"> Eliminación
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="api-docs">Documentación API</label>
+                                    <a href="#" class="btn btn-docs"><i class="fas fa-book"></i> Ver Documentación</a>
+                                </div>
+                                
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-save">Guardar Configuración</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        <!-- Backup Tab -->
+                        <div id="backup-tab" class="tab-pane">
+                            <div class="backup-management">
+                                <div class="backup-actions">
+                                    <button class="btn btn-backup"><i class="fas fa-database"></i> Crear Backup</button>
+                                    <button class="btn btn-restore"><i class="fas fa-undo"></i> Restaurar</button>
+                                    <button class="btn btn-schedule"><i class="fas fa-calendar-alt"></i> Programar</button>
+                                </div>
+                                
+                                <div class="backup-list">
+                                    <h4>Backups Recientes</h4>
+                                    <div class="backup-item">
+                                        <div class="backup-info">
+                                            <div class="backup-name">backup_20230615.sql</div>
+                                            <div class="backup-date">15/06/2023 08:30 AM</div>
+                                            <div class="backup-size">45.2 MB</div>
+                                        </div>
+                                        <div class="backup-actions">
+                                            <button class="btn btn-download"><i class="fas fa-download"></i></button>
+                                            <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Más backups... -->
+                                </div>
+                                
+                                <div class="backup-settings">
+                                    <h4>Configuración de Backup</h4>
+                                    <form class="backup-form">
+                                        <div class="form-group">
+                                            <label for="backup-frequency">Frecuencia</label>
+                                            <select id="backup-frequency">
+                                                <option value="daily">Diario</option>
+                                                <option value="weekly" selected>Semanal</option>
+                                                <option value="monthly">Mensual</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="backup-time">Hora</label>
+                                            <input type="time" id="backup-time" value="02:00">
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="backup-location">Ubicación</label>
+                                            <select id="backup-location">
+                                                <option value="server">Servidor</option>
+                                                <option value="cloud">Nube</option>
+                                                <option value="both">Ambos</option>
+                                            </select>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="backup-retention">Retención (días)</label>
+                                            <input type="number" id="backup-retention" min="1" value="30">
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button type="submit" class="btn btn-save">Guardar Configuración</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Add User Modal -->
+            <div id="add-user-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Agregar Nuevo Usuario</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="new-user-form">
+                            <div class="form-group">
+                                <label for="new-user-name">Nombre Completo *</label>
+                                <input type="text" id="new-user-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-user-email">Email *</label>
+                                <input type="email" id="new-user-email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-user-role">Rol *</label>
+                                <select id="new-user-role" required>
+                                    <option value="">Seleccionar rol</option>
+                                    <option value="admin">Administrador</option>
+                                    <option value="manager">Gerente</option>
+                                    <option value="seller">Vendedor</option>
+                                    <option value="inventory">Inventario</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-user-password">Contraseña *</label>
+                                <input type="password" id="new-user-password" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="new-user-confirm">Confirmar Contraseña *</label>
+                                <input type="password" id="new-user-confirm" required>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-save">Crear Usuario</button>
+                                <button type="button" class="btn btn-cancel">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Settings-Company(Admin).js"></script>
+</body>
+</html>

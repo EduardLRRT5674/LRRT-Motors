@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - LRRT Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Dashboard(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li class="active"><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings-General(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Dashboard</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="content-area">
+                <!-- Stats Cards -->
+                <div class="stats-cards">
+                    <div class="stat-card">
+                        <div class="stat-icon bg-blue">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>125</h3>
+                            <p>Vehículos en stock</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-green">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>48</h3>
+                            <p>Ventas este mes</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-orange">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>89</h3>
+                            <p>Clientes registrados</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon bg-red">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>$1,245,000</h3>
+                            <p>Ingresos totales</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Sales and Vehicles -->
+                <div class="content-row">
+                    <div class="content-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Ventas Recientes</h3>
+                                <a href="#" class="btn-view-all">Ver todo</a>
+                            </div>
+                            <div class="card-body">
+                                <table class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Cliente</th>
+                                            <th>Vehículo</th>
+                                            <th>Fecha</th>
+                                            <th>Total</th>
+                                            <th>Estado</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#AM-1001</td>
+                                            <td>Juan Pérez</td>
+                                            <td>Toyota Corolla 2022</td>
+                                            <td>15/06/2025</td>
+                                            <td>COP 98'000.000</td>
+                                            <td><span class="status completed">Completado</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#AM-1002</td>
+                                            <td>María Gómez</td>
+                                            <td>Honda CR-V 2021</td>
+                                            <td>14/06/2025</td>
+                                            <td>COP 110'000.000</td>
+                                            <td><span class="status pending">Pendiente</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td>#AM-1003</td>
+                                            <td>Carlos Ruiz</td>
+                                            <td>Ford F-150 2023</td>
+                                            <td>12/06/2025</td>
+                                            <td>COP 274'000.000</td>
+                                            <td><span class="status completed">Completado</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="content-col">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3>Vehículos Recientes</h3>
+                                <a href="#" class="btn-view-all">Ver todo</a>
+                            </div>
+                            <div class="card-body">
+                                <div class="vehicle-list">
+                                    <div class="vehicle-item">
+                                        <div class="vehicle-image">
+                                            <img src="https://via.placeholder.com/80" alt="Toyota Corolla">
+                                        </div>
+                                        <div class="vehicle-info">
+                                            <h4>Toyota Corolla 2022</h4>
+                                            <p><strong>Precio:</strong> COP 98'000.000</p>
+                                            <p><strong>Stock:</strong> 5</p>
+                                        </div>
+                                        <div class="vehicle-actions">
+                                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="vehicle-item">
+                                        <div class="vehicle-image">
+                                            <img src="https://via.placeholder.com/80" alt="Honda CR-V">
+                                        </div>
+                                        <div class="vehicle-info">
+                                            <h4>Honda CR-V 2021</h4>
+                                            <p><strong>Precio:</strong> COP 110'000.000</p>
+                                            <p><strong>Stock:</strong> 3</p>
+                                        </div>
+                                        <div class="vehicle-actions">
+                                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                    <div class="vehicle-item">
+                                        <div class="vehicle-image">
+                                            <img src="https://via.placeholder.com/80" alt="Ford F-150">
+                                        </div>
+                                        <div class="vehicle-info">
+                                            <h4>Ford F-150 2023</h4>
+                                            <p><strong>Precio:</strong> COP 274'000.000</p>
+                                            <p><strong>Stock:</strong> 2</p>
+                                        </div>
+                                        <div class="vehicle-actions">
+                                            <button class="btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-delete"><i class="fas fa-trash"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Vehicle Form (Hidden by default) -->
+                <div id="add-vehicle-form" class="modal-form" style="display: none;">
+                    <div class="form-container">
+                        <div class="form-header">
+                            <h3>Agregar Nuevo Vehículo</h3>
+                            <button class="close-form">&times;</button>
+                        </div>
+                        <form id="vehicle-form">
+                            <div class="form-group">
+                                <label for="make">Marca</label>
+                                <select id="make" required>
+                                    <option value="">Seleccione una marca</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="chevrolet">Chevrolet</option>
+                                    <option value="renault">Renault</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="hyundai">Hyundai</option>
+                                    <option value="kia">Kia</option>
+                                    <option value="mazda">Mazda</option>
+                                    <option value="susuki">Susuki</option>
+                                    <option value="mercedes">Mercedes-Benz</option>
+                                    <option value="audi">Audi</option>
+                                    <option value="bmw">BMW</option>
+                                    <option value="volkswagen">Volkswagen</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="model">Modelo</label>
+                                <input type="text" id="model" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="year">Año</label>
+                                <input type="number" id="year" min="2000" max="2023" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Precio</label>
+                                <input type="number" id="price" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="stock">Stock</label>
+                                <input type="number" id="stock" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="image">Imagen</label>
+                                <input type="file" id="image" accept="image/*">
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="btn-save">Guardar</button>
+                                <button type="button" class="btn-cancel">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Dashboard(Admin).js"></script>
+</body>
+</html>

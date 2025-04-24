@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRRT Motors - Admin Login</title>
+    <link rel="stylesheet" href="StylesLRRT-Login(Admin).css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="logo-admin.png" alt="Logo" class="logo">
+            <h1>Panel de Administración</h1>
+            <p>Acceso exclusivo para administradores</p>
+        </div>
+        
+        <form id="loginForm" class="login-form">
+            <div class="form-group">
+                <label for="username">Usuario:</label>
+                <input type="text" id="username" name="username" required>
+                <span class="error-message" id="username-error"></span>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Contraseña:</label>
+                <div class="password-wrapper">
+                    <input type="password" id="password" name="password" required>
+                    <button type="button" class="toggle-password" aria-label="Mostrar contraseña">
+                        <i class="eye-icon">👁️</i>
+                    </button>
+                </div>
+                <span class="error-message" id="password-error"></span>
+            </div>
+            
+            <button type="submit" class="login-button">Iniciar Sesión</button>
+        </form>
+        
+        <div class="login-footer">
+            <p>© 2025 LRRT Motors - Todos los derechos reservados</p>
+        </div>
+    </div>
+
+    <div id="adminPanel" class="admin-panel hidden">
+        <header class="admin-header">
+            <h2>Panel de Control</h2>
+            <button id="logoutBtn" class="logout-button">Cerrar Sesión</button>
+        </header>
+        
+        <main class="admin-content">
+            <h3>Bienvenido, <span id="adminName">Administrador</span></h3>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <h4>Vehículos Registrados</h4>
+                    <p id="totalVehicles">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Usuarios Activos</h4>
+                    <p id="activeUsers">0</p>
+                </div>
+                <div class="stat-card">
+                    <h4>Ventas Hoy</h4>
+                    <p id="todaySales">0</p>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Login(Admin).js"></script>
+</body>
+</html>

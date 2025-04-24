@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesVehículosAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="vehiculos.html">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ventas.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="usuarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mensajes.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Mensajes</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracion.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar vehículo...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Vehicles Content -->
+            <section class="content-section" id="vehiculos">
+                <div class="section-header">
+                    <h2>Gestión de Vehículos</h2>
+                    <button class="btn-primary" id="addVehicleBtn">
+                        <i class="fas fa-plus"></i> Agregar Vehículo
+                    </button>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters-card">
+                    <div class="filter-group">
+                        <label for="filter-status">Estado:</label>
+                        <select id="filter-status">
+                            <option value="">Todos</option>
+                            <option value="activo">Activo</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="vendido">Vendido</option>
+                            <option value="inactivo">Inactivo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-type">Tipo:</label>
+                        <select id="filter-type">
+                            <option value="">Todos</option>
+                            <option value="sedan">Sedán</option>
+                            <option value="suv">SUV</option>
+                            <option value="pickup">Pickup</option>
+                            <option value="deportivo">Deportivo</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-fuel">Combustible:</label>
+                        <select id="filter-fuel">
+                            <option value="">Todos</option>
+                            <option value="gasolina">Gasolina</option>
+                            <option value="diesel">Diésel</option>
+                            <option value="hibrido">Híbrido</option>
+                            <option value="electrico">Eléctrico</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-year">Año:</label>
+                        <select id="filter-year">
+                            <option value="">Todos</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-filter">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    
+                    <button class="btn-reset">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+                
+                <!-- Tabla de Vehículos -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <div class="table-actions">
+                            <select class="bulk-actions">
+                                <option value="">Acciones en masa</option>
+                                <option value="activate">Activar</option>
+                                <option value="deactivate">Desactivar</option>
+                                <option value="delete">Eliminar</option>
+                            </select>
+                            <button class="btn-apply">Aplicar</button>
+                        </div>
+                        
+                        <div class="table-pagination">
+                            <span>Mostrando 1-10 de 128 vehículos</span>
+                            <div class="pagination-controls">
+                                <button class="btn-pagination" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="btn-pagination active">1</button>
+                                <button class="btn-pagination">2</button>
+                                <button class="btn-pagination">3</button>
+                                <button class="btn-pagination">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="40px"><input type="checkbox" id="select-all"></th>
+                                    <th>ID</th>
+                                    <th>Vehículo</th>
+                                    <th>Precio</th>
+                                    <th>Año</th>
+                                    <th>Tipo</th>
+                                    <th>Combustible</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="vehicle-checkbox"></td>
+                                    <td>#AM-125</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Toyota" alt="Toyota Corolla">
+                                            <div>
+                                                <strong>Toyota Corolla</strong>
+                                                <small>KM: 0</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$25,990</td>
+                                    <td>2023</td>
+                                    <td>Sedán</td>
+                                    <td>Híbrido</td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="vehicle-checkbox"></td>
+                                    <td>#AM-124</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Ford" alt="Ford F-150">
+                                            <div>
+                                                <strong>Ford F-150</strong>
+                                                <small>KM: 45,000</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$32,500</td>
+                                    <td>2019</td>
+                                    <td>Pickup</td>
+                                    <td>Gasolina</td>
+                                    <td><span class="status-badge pending">Pendiente</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="vehicle-checkbox"></td>
+                                    <td>#AM-123</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Honda" alt="Honda CR-V">
+                                            <div>
+                                                <strong>Honda CR-V</strong>
+                                                <small>KM: 18,000</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$28,750</td>
+                                    <td>2021</td>
+                                    <td>SUV</td>
+                                    <td>Híbrido</td>
+                                    <td><span class="status-badge sold">Vendido</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="vehicle-checkbox"></td>
+                                    <td>#AM-122</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=BMW" alt="BMW Serie 3">
+                                            <div>
+                                                <strong>BMW Serie 3</strong>
+                                                <small>KM: 12,500</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$39,999</td>
+                                    <td>2022</td>
+                                    <td>Sedán</td>
+                                    <td>Gasolina</td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="vehicle-checkbox"></td>
+                                    <td>#AM-121</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Chevrolet" alt="Chevrolet Camaro">
+                                            <div>
+                                                <strong>Chevrolet Camaro</strong>
+                                                <small>KM: 8,200</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>$42,800</td>
+                                    <td>2022</td>
+                                    <td>Deportivo</td>
+                                    <td>Gasolina</td>
+                                    <td><span class="status-badge inactive">Inactivo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Agregar Vehículo (oculto por defecto) -->
+    <div class="modal" id="addVehicleModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Agregar Nuevo Vehículo</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="vehicleForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="marca">Marca *</label>
+                            <input type="text" id="marca" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="modelo">Modelo *</label>
+                            <input type="text" id="modelo" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="anio">Año *</label>
+                            <input type="number" id="anio" min="1990" max="2023" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="precio">Precio ($) *</label>
+                            <input type="number" id="precio" min="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="kilometraje">Kilometraje</label>
+                            <input type="number" id="kilometraje" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="color">Color</label>
+                            <input type="text" id="color">
+                        </div>
+                        <div class="form-group">
+                            <label for="tipo">Tipo de Vehículo *</label>
+                            <select id="tipo" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="sedan">Sedán</option>
+                                <option value="suv">SUV</option>
+                                <option value="pickup">Pickup</option>
+                                <option value="deportivo">Deportivo</option>
+                                <option value="hatchback">Hatchback</option>
+                                <option value="camioneta">Camioneta</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="combustible">Combustible *</label>
+                            <select id="combustible" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="gasolina">Gasolina</option>
+                                <option value="diesel">Diésel</option>
+                                <option value="hibrido">Híbrido</option>
+                                <option value="electrico">Eléctrico</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="transmision">Transmisión</label>
+                            <select id="transmision">
+                                <option value="">Seleccionar...</option>
+                                <option value="automatica">Automática</option>
+                                <option value="manual">Manual</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado *</label>
+                            <select id="estado" required>
+                                <option value="activo">Activo</option>
+                                <option value="pendiente">Pendiente</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="descripcion">Descripción</label>
+                            <textarea id="descripcion" rows="4"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="imagenes">Imágenes *</label>
+                            <input type="file" id="imagenes" multiple accept="image/*" required>
+                            <small>Seleccione al menos 3 imágenes del vehículo</small>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Guardar Vehículo</button>
+                        <button type="button" class="btn-cancel modal-close">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

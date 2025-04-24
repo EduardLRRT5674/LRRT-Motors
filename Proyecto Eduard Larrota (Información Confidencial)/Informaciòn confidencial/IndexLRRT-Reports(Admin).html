@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reportes - Admin AutoMarket</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Reports(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> AutoMarket</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li class="active"><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings-General(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Reportes y Análisis</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">1</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Reports Content -->
+            <div class="content-area">
+                <!-- Reports Filters -->
+                <div class="reports-filters">
+                    <div class="filter-group">
+                        <label for="report-type">Tipo de Reporte</label>
+                        <select id="report-type">
+                            <option value="sales">Ventas</option>
+                            <option value="inventory">Inventario</option>
+                            <option value="clients">Clientes</option>
+                            <option value="sellers">Vendedores</option>
+                            <option value="financial">Financiero</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="time-period">Período de Tiempo</label>
+                        <select id="time-period">
+                            <option value="today">Hoy</option>
+                            <option value="week">Esta Semana</option>
+                            <option value="month" selected>Este Mes</option>
+                            <option value="quarter">Este Trimestre</option>
+                            <option value="year">Este Año</option>
+                            <option value="custom">Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group custom-date" style="display: none;">
+                        <label for="start-date">Desde</label>
+                        <input type="date" id="start-date">
+                    </div>
+                    
+                    <div class="filter-group custom-date" style="display: none;">
+                        <label for="end-date">Hasta</label>
+                        <input type="date" id="end-date">
+                    </div>
+                    
+                    <button class="btn btn-generate">
+                        <i class="fas fa-chart-bar"></i> Generar Reporte
+                    </button>
+                    
+                    <button class="btn btn-export">
+                        <i class="fas fa-file-export"></i> Exportar
+                    </button>
+                </div>
+
+                <!-- Reports Dashboard -->
+                <div class="reports-dashboard">
+                    <!-- Sales Report -->
+                    <div class="report-card sales-report">
+                        <div class="report-header">
+                            <h3>Reporte de Ventas</h3>
+                            <div class="report-period">
+                                <span>Junio 2023</span>
+                            </div>
+                        </div>
+                        <div class="report-body">
+                            <div class="chart-container">
+                                <canvas id="sales-chart"></canvas>
+                            </div>
+                            <div class="sales-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">48</span>
+                                    <span class="stat-label">Ventas Totales</span>
+                                    <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">$245,000</span>
+                                    <span class="stat-label">Ingresos Totales</span>
+                                    <span class="stat-trend up"><i class="fas fa-arrow-up"></i> 8%</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">$5,104</span>
+                                    <span class="stat-label">Promedio por Venta</span>
+                                    <span class="stat-trend down"><i class="fas fa-arrow-down"></i> 3%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Inventory Report -->
+                    <div class="report-card inventory-report">
+                        <div class="report-header">
+                            <h3>Reporte de Inventario</h3>
+                            <div class="report-period">
+                                <span>Junio 2023</span>
+                            </div>
+                        </div>
+                        <div class="report-body">
+                            <div class="chart-container">
+                                <canvas id="inventory-chart"></canvas>
+                            </div>
+                            <div class="inventory-stats">
+                                <div class="stat-item">
+                                    <span class="stat-value">125</span>
+                                    <span class="stat-label">Vehículos en Stock</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">32</span>
+                                    <span class="stat-label">Días en Promedio</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-value">15</span>
+                                    <span class="stat-label">Vehículos Nuevos</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Top Sellers Report -->
+                    <div class="report-card top-sellers">
+                        <div class="report-header">
+                            <h3>Top Vendedores</h3>
+                            <div class="report-period">
+                                <span>Junio 2023</span>
+                            </div>
+                        </div>
+                        <div class="report-body">
+                            <table class="sellers-table">
+                                <thead>
+                                    <tr>
+                                        <th>Posición</th>
+                                        <th>Vendedor</th>
+                                        <th>Ventas</th>
+                                        <th>Monto</th>
+                                        <th>Comisión</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>
+                                            <div class="seller-avatar">
+                                                <img src="vjuwsmnbvez.png" alt="María González">
+                                            </div>
+                                            <span>María González</span>
+                                        </td>
+                                        <td>12</td>
+                                        <td>$120,000</td>
+                                        <td>$3,600</td>
+                                    </tr>
+                                    <!-- Más filas de vendedores... -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <!-- Vehicle Types Report -->
+                    <div class="report-card vehicle-types">
+                        <div class="report-header">
+                            <h3>Vehículos por Tipo</h3>
+                            <div class="report-period">
+                                <span>Junio 2023</span>
+                            </div>
+                        </div>
+                        <div class="report-body">
+                            <div class="chart-container">
+                                <canvas id="vehicle-types-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Report Configuration Modal -->
+            <div id="report-config-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Configuración de Reporte</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="report-config-form">
+                            <div class="form-group">
+                                <label for="custom-report-type">Tipo de Reporte</label>
+                                <select id="custom-report-type">
+                                    <option value="sales">Ventas</option>
+                                    <option value="inventory">Inventario</option>
+                                    <option value="clients">Clientes</option>
+                                    <option value="sellers">Vendedores</option>
+                                    <option value="financial">Financiero</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="custom-period">Período de Tiempo</label>
+                                <select id="custom-period">
+                                    <option value="today">Hoy</option>
+                                    <option value="week">Esta Semana</option>
+                                    <option value="month">Este Mes</option>
+                                    <option value="quarter">Este Trimestre</option>
+                                    <option value="year">Este Año</option>
+                                    <option value="custom">Personalizado</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-row custom-date-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="custom-start-date">Fecha Inicio</label>
+                                    <input type="date" id="custom-start-date">
+                                </div>
+                                <div class="form-group">
+                                    <label for="custom-end-date">Fecha Fin</label>
+                                    <input type="date" id="custom-end-date">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="report-format">Formato</label>
+                                <select id="report-format">
+                                    <option value="chart">Gráfico</option>
+                                    <option value="table">Tabla</option>
+                                    <option value="both">Ambos</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="report-details">Detalles a Incluir</label>
+                                <div class="checkboxes">
+                                    <label>
+                                        <input type="checkbox" name="details" value="totals" checked> Totales
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="details" value="comparison" checked> Comparación
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="details" value="trends"> Tendencias
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="details" value="breakdown"> Desglose
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-generate">Generar Reporte</button>
+                                <button type="button" class="btn btn-cancel">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="ScriptLRRT-Reports(Admin).js"></script>
+</body>
+</html>

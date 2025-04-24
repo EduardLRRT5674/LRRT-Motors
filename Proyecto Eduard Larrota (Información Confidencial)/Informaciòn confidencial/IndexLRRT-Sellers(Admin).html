@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendedores - Admin LRRT Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Sellers(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li class="active"><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings-General(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Gestión de Vendedores</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">2</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sellers Content -->
+            <div class="content-area">
+                <!-- Sellers Summary -->
+                <div class="sellers-summary">
+                    <div class="summary-card total">
+                        <div class="card-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>15</h3>
+                            <p>Vendedores Totales</p>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> 10%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card active">
+                        <div class="card-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>12</h3>
+                            <p>Vendedores Activos</p>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> 5%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card top">
+                        <div class="card-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>5</h3>
+                            <p>Vendedores Destacados</p>
+                            <span class="trend neutral"><i class="fas fa-equals"></i></span>
+                        </div>
+                    </div>
+                    <div class="summary-card new">
+                        <div class="card-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>3</h3>
+                            <p>Nuevos este Mes</p>
+                            <span class="trend down"><i class="fas fa-arrow-down"></i> 2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sellers Actions -->
+                <div class="sellers-actions">
+                    <button id="new-seller-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Nuevo Vendedor
+                    </button>
+                    <div class="filters">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar vendedores...">
+                            <button class="btn btn-search"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="status-filter">
+                            <select id="seller-status">
+                                <option value="">Todos los estados</option>
+                                <option value="active">Activo</option>
+                                <option value="inactive">Inactivo</option>
+                                <option value="vacation">Vacaciones</option>
+                            </select>
+                        </div>
+                        <div class="performance-filter">
+                            <select id="performance">
+                                <option value="">Todos los rendimientos</option>
+                                <option value="top">Destacados</option>
+                                <option value="average">Promedio</option>
+                                <option value="low">Bajo</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sellers Table -->
+                <div class="sellers-table-container">
+                    <div class="table-header">
+                        <h3>Listado de Vendedores</h3>
+                        <div class="table-actions">
+                            <button class="btn btn-export"><i class="fas fa-file-export"></i> Exportar</button>
+                            <div class="pagination-info">
+                                Mostrando 1-10 de 15 vendedores
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="sellers-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Vendedor</th>
+                                    <th>Contacto</th>
+                                    <th>Ventas</th>
+                                    <th>Comisión</th>
+                                    <th>Rendimiento</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#VD-1001</td>
+                                    <td>
+                                        <div class="seller-avatar">
+                                            <img src="vjuwsmnbvez.png" alt="María González">
+                                        </div>
+                                        <div class="seller-info">
+                                            <span class="seller-name">María González</span>
+                                            <span class="seller-position">Vendedor Senior</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="contact-info">maria.gonzalez@lrrtmotors.com</span>
+                                        <span class="contact-info">+1 234 567 890</span>
+                                    </td>
+                                    <td>
+                                        <span class="sales-count">18</span>
+                                        <span class="sales-amount">$450,000</span>
+                                    </td>
+                                    <td>$13,500</td>
+                                    <td>
+                                        <div class="performance-indicator">
+                                            <div class="performance-bar" style="width: 95%"></div>
+                                            <span>95%</span>
+                                        </div>
+                                    </td>
+                                    <td><span class="badge active">Activo</span></td>
+                                    <td class="actions">
+                                        <button class="btn btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- Más filas de vendedores... -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <div class="pagination">
+                            <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Seller Modal -->
+            <div id="new-seller-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Registrar Nuevo Vendedor</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="new-seller-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">Nombre(s) *</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Apellido(s) *</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="position">Cargo *</label>
+                                    <select id="position" required>
+                                        <option value="">Seleccionar cargo</option>
+                                        <option value="junior">Vendedor Junior</option>
+                                        <option value="senior">Vendedor Senior</option>
+                                        <option value="manager">Gerente de Ventas</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="commission">Comisión (%) *</label>
+                                    <input type="number" id="commission" min="0" max="100" step="0.1" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="hire-date">Fecha de Contratación *</label>
+                                    <input type="date" id="hire-date" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="status">Estado *</label>
+                                    <select id="status" required>
+                                        <option value="active">Activo</option>
+                                        <option value="inactive">Inactivo</option>
+                                        <option value="vacation">Vacaciones</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="address">Dirección</label>
+                                <input type="text" id="address">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notes">Notas</label>
+                                <textarea id="notes" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-save">Guardar Vendedor</button>
+                                <button type="button" class="btn btn-cancel">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Seller Detail Modal -->
+            <div id="seller-detail-modal" class="modal">
+                <div class="modal-content wide">
+                    <div class="modal-header">
+                        <h3>Detalle del Vendedor #VD-1001</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="seller-detail">
+                            <div class="seller-header">
+                                <div class="seller-avatar large">
+                                    <img src="vjuwsmnbvez.png" alt="María González">
+                                </div>
+                                <div class="seller-info">
+                                    <h4>María González</h4>
+                                    <p class="seller-meta">
+                                        <span><i class="fas fa-briefcase"></i> Vendedor Senior</span>
+                                        <span><i class="fas fa-calendar-alt"></i> Contratación: 15/03/2020</span>
+                                        <span><i class="fas fa-percentage"></i> Comisión: 3%</span>
+                                    </p>
+                                    <div class="seller-status">
+                                        <span class="badge active">Activo</span>
+                                    </div>
+                                </div>
+                                <div class="seller-actions">
+                                    <button class="btn btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                    <button class="btn btn-message"><i class="fas fa-envelope"></i> Mensaje</button>
+                                </div>
+                            </div>
+                            
+                            <div class="seller-tabs">
+                                <div class="tabs-header">
+                                    <button class="tab-btn active" data-tab="info">Información</button>
+                                    <button class="tab-btn" data-tab="sales">Ventas</button>
+                                    <button class="tab-btn" data-tab="performance">Rendimiento</button>
+                                    <button class="tab-btn" data-tab="documents">Documentos</button>
+                                </div>
+                                
+                                <div class="tabs-content">
+                                    <div id="info-tab" class="tab-pane active">
+                                        <div class="info-grid">
+                                            <div class="info-section">
+                                                <h5>Información Personal</h5>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                                                    <span class="info-value">maria.gonzalez@lrrtmotors.com</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-phone"></i> Teléfono:</span>
+                                                    <span class="info-value">+1 234 567 890</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-map-marker-alt"></i> Dirección:</span>
+                                                    <span class="info-value">Calle Principal 123, Ciudad, País</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="info-section">
+                                                <h5>Información Laboral</h5>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-id-badge"></i> ID:</span>
+                                                    <span class="info-value">#VD-1001</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-calendar-check"></i> Fecha Contratación:</span>
+                                                    <span class="info-value">15/03/2020</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-percentage"></i> Comisión:</span>
+                                                    <span class="info-value">3%</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="info-section notes">
+                                                <h5>Notas</h5>
+                                                <p>Vendedora destacada con excelente historial de ventas. Especializada en vehículos de lujo y clientes corporativos.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Otras pestañas (sales, performance, documents) -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Sellers(Admin).js"></script>
+</body>
+</html>

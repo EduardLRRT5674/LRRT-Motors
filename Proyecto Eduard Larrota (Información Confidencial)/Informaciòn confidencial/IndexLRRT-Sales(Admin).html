@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas - Admin LRRT Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Sales(Admin).css">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li class="active"><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings-General(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Gestión de Ventas</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">5</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sales Content -->
+            <div class="content-area">
+                <!-- Sales Summary -->
+                <div class="sales-summary">
+                    <div class="summary-card total-sales">
+                        <div class="summary-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>$124,500</h3>
+                            <p>Ventas Totales</p>
+                            <span class="summary-trend up"><i class="fas fa-arrow-up"></i> 12%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card monthly-sales">
+                        <div class="summary-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>$48,750</h3>
+                            <p>Ventas este Mes</p>
+                            <span class="summary-trend up"><i class="fas fa-arrow-up"></i> 8%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card completed-sales">
+                        <div class="summary-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>36</h3>
+                            <p>Ventas Completadas</p>
+                            <span class="summary-trend up"><i class="fas fa-arrow-up"></i> 5%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card pending-sales">
+                        <div class="summary-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="summary-info">
+                            <h3>7</h3>
+                            <p>Ventas Pendientes</p>
+                            <span class="summary-trend down"><i class="fas fa-arrow-down"></i> 3%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Actions -->
+                <div class="sales-actions-bar">
+                    <button id="add-sale-btn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Registrar Venta
+                    </button>
+                    <div class="date-range-picker">
+                        <input type="date" id="start-date">
+                        <span>a</span>
+                        <input type="date" id="end-date">
+                        <button class="btn-apply"><i class="fas fa-check"></i></button>
+                    </div>
+                    <div class="filter-dropdown">
+                        <select id="sale-status-filter">
+                            <option value="">Todos los estados</option>
+                            <option value="completed">Completadas</option>
+                            <option value="pending">Pendientes</option>
+                            <option value="canceled">Canceladas</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Sales Charts -->
+                <div class="sales-charts">
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Ventas Mensuales</h3>
+                            <div class="chart-legend">
+                                <span class="legend-item"><i class="fas fa-square" style="color: #3498db;"></i> 2023</span>
+                                <span class="legend-item"><i class="fas fa-square" style="color: #e74c3c;"></i> 2022</span>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="monthlySalesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Ventas por Vendedor</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="salesBySellerChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sales Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Historial de Ventas</h3>
+                        <div class="table-actions">
+                            <button class="btn-export"><i class="fas fa-file-export"></i> Exportar</button>
+                            <div class="pagination-info">
+                                Mostrando 1-10 de 48 ventas
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID Venta</th>
+                                        <th>Fecha</th>
+                                        <th>Cliente</th>
+                                        <th>Vehículo</th>
+                                        <th>Vendedor</th>
+                                        <th>Método Pago</th>
+                                        <th>Total</th>
+                                        <th>Estado</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#VTA-1056</td>
+                                        <td>15/06/2023</td>
+                                        <td>Juan Pérez</td>
+                                        <td>Toyota Corolla 2022</td>
+                                        <td>María González</td>
+                                        <td>Financiamiento</td>
+                                        <td>$25,000</td>
+                                        <td><span class="status completed">Completada</span></td>
+                                        <td>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-action btn-print"><i class="fas fa-print"></i></button>
+                                            <button class="btn-action btn-invoice"><i class="fas fa-file-invoice"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#VTA-1055</td>
+                                        <td>14/06/2023</td>
+                                        <td>María Gómez</td>
+                                        <td>Honda CR-V 2021</td>
+                                        <td>Carlos Rodríguez</td>
+                                        <td>Transferencia</td>
+                                        <td>$32,500</td>
+                                        <td><span class="status pending">Pendiente</span></td>
+                                        <td>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-action btn-print"><i class="fas fa-print"></i></button>
+                                            <button class="btn-action btn-invoice"><i class="fas fa-file-invoice"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#VTA-1054</td>
+                                        <td>12/06/2023</td>
+                                        <td>Carlos Ruiz</td>
+                                        <td>Ford F-150 2023</td>
+                                        <td>María González</td>
+                                        <td>Efectivo</td>
+                                        <td>$45,000</td>
+                                        <td><span class="status completed">Completada</span></td>
+                                        <td>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                            <button class="btn-action btn-print"><i class="fas fa-print"></i></button>
+                                            <button class="btn-action btn-invoice"><i class="fas fa-file-invoice"></i></button>
+                                        </td>
+                                    </tr>
+                                    <!-- Más filas de ventas... -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">5</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Sale Modal -->
+            <div id="sale-modal" class="modal-form" style="display: none;">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3>Registrar Nueva Venta</h3>
+                        <button class="close-form">&times;</button>
+                    </div>
+                    <form id="sale-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sale-client">Cliente *</label>
+                                <select id="sale-client" required>
+                                    <option value="">Seleccione un cliente</option>
+                                    <option value="1">Juan Pérez</option>
+                                    <option value="2">María Gómez</option>
+                                    <option value="3">Carlos Ruiz</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sale-seller">Vendedor *</label>
+                                <select id="sale-seller" required>
+                                    <option value="">Seleccione un vendedor</option>
+                                    <option value="1">María González</option>
+                                    <option value="2">Carlos Rodríguez</option>
+                                    <option value="3">Ana Martínez</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sale-vehicle">Vehículo *</label>
+                            <select id="sale-vehicle" required>
+                                <option value="">Seleccione un vehículo</option>
+                                <option value="1">Toyota Corolla 2022 - $25,000</option>
+                                <option value="2">Honda CR-V 2021 - $32,500</option>
+                                <option value="3">Ford F-150 2023 - $45,000</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sale-date">Fecha de Venta *</label>
+                                <input type="date" id="sale-date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="sale-price">Precio ($) *</label>
+                                <input type="number" id="sale-price" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sale-payment">Método de Pago *</label>
+                                <select id="sale-payment" required>
+                                    <option value="">Seleccione método</option>
+                                    <option value="cash">Efectivo</option>
+                                    <option value="transfer">Transferencia</option>
+                                    <option value="credit">Crédito</option>
+                                    <option value="financing">Financiamiento</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="sale-status">Estado *</label>
+                                <select id="sale-status" required>
+                                    <option value="completed">Completada</option>
+                                    <option value="pending">Pendiente</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="sale-notes">Notas Adicionales</label>
+                            <textarea id="sale-notes" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Guardar Venta</button>
+                            <button type="button" class="btn-cancel">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Sale Detail Modal -->
+            <div id="detail-modal" class="modal-form" style="display: none;">
+                <div class="form-container wide">
+                    <div class="form-header">
+                        <h3>Detalle de Venta #VTA-1056</h3>
+                        <button class="close-form">&times;</button>
+                    </div>
+                    <div class="sale-detail-content">
+                        <div class="sale-info">
+                            <div class="info-row">
+                                <span class="info-label">Fecha:</span>
+                                <span class="info-value">15/06/2023</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Estado:</span>
+                                <span class="info-value status completed">Completada</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Vendedor:</span>
+                                <span class="info-value">María González</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-label">Método de Pago:</span>
+                                <span class="info-value">Financiamiento</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sale-items">
+                            <h4>Vehículo Vendido</h4>
+                            <div class="sale-item">
+                                <div class="item-image">
+                                    <img src="https://via.placeholder.com/120" alt="Toyota Corolla">
+                                </div>
+                                <div class="item-details">
+                                    <h5>Toyota Corolla 2022</h5>
+                                    <p><strong>Marca:</strong> Toyota</p>
+                                    <p><strong>Modelo:</strong> Corolla SE</p>
+                                    <p><strong>Año:</strong> 2022</p>
+                                    <p><strong>Color:</strong> Blanco</p>
+                                    <p><strong>Kilometraje:</strong> 15,000 km</p>
+                                </div>
+                                <div class="item-price">
+                                    <p><strong>Precio:</strong> $25,000</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sale-totals">
+                            <div class="totals-row">
+                                <span class="totals-label">Subtotal:</span>
+                                <span class="totals-value">$25,000</span>
+                            </div>
+                            <div class="totals-row">
+                                <span class="totals-label">Impuestos (10%):</span>
+                                <span class="totals-value">$2,500</span>
+                            </div>
+                            <div class="totals-row grand-total">
+                                <span class="totals-label">Total:</span>
+                                <span class="totals-value">$27,500</span>
+                            </div>
+                        </div>
+                        
+                        <div class="sale-actions">
+                            <button class="btn-print"><i class="fas fa-print"></i> Imprimir</button>
+                            <button class="btn-invoice"><i class="fas fa-file-invoice"></i> Generar Factura</button>
+                            <button class="btn-email"><i class="fas fa-envelope"></i> Enviar por Email</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="ScriptLRRT-Sales(Admin).js"></script>
+</body>
+</html>

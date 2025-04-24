@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ventas - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesVentasAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vehiculos.html">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="ventas.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="usuarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mensajes.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Mensajes</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracion.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar venta...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Sales Content -->
+            <section class="content-section" id="ventas">
+                <div class="section-header">
+                    <h2>Gestión de Ventas</h2>
+                    <div class="header-actions">
+                        <button class="btn-export">
+                            <i class="fas fa-file-export"></i> Exportar
+                        </button>
+                        <button class="btn-primary">
+                            <i class="fas fa-plus"></i> Nueva Venta
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="sales-stats">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ventas Hoy</h3>
+                            <p>5</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 25% ayer
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-day"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ventas Mes</h3>
+                            <p>42</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 8% mes pasado
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ingresos Hoy</h3>
+                            <p>$28,750</p>
+                            <span class="stat-trend down">
+                                <i class="fas fa-arrow-down"></i> 15% ayer
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ingresos Mes</h3>
+                            <p>$128,950</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 15% mes pasado
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters-card">
+                    <div class="filter-group">
+                        <label for="filter-status">Estado:</label>
+                        <select id="filter-status">
+                            <option value="">Todos</option>
+                            <option value="completada">Completada</option>
+                            <option value="pendiente">Pendiente</option>
+                            <option value="cancelada">Cancelada</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-date">Fecha:</label>
+                        <select id="filter-date">
+                            <option value="">Todas las fechas</option>
+                            <option value="hoy">Hoy</option>
+                            <option value="semana">Esta semana</option>
+                            <option value="mes">Este mes</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group date-range" style="display: none;">
+                        <label for="start-date">Desde:</label>
+                        <input type="date" id="start-date">
+                    </div>
+                    
+                    <div class="filter-group date-range" style="display: none;">
+                        <label for="end-date">Hasta:</label>
+                        <input type="date" id="end-date">
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-seller">Vendedor:</label>
+                        <select id="filter-seller">
+                            <option value="">Todos</option>
+                            <option value="1">Juan Pérez</option>
+                            <option value="2">María Gómez</option>
+                            <option value="3">Carlos Rodríguez</option>
+                        </select>
+                    </div>
+                    
+                    <button class="btn-filter">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    
+                    <button class="btn-reset">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+                
+                <!-- Tabla de Ventas -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <div class="table-actions">
+                            <select class="bulk-actions">
+                                <option value="">Acciones en masa</option>
+                                <option value="export">Exportar seleccionadas</option>
+                                <option value="cancel">Cancelar ventas</option>
+                            </select>
+                            <button class="btn-apply">Aplicar</button>
+                        </div>
+                        
+                        <div class="table-pagination">
+                            <span>Mostrando 1-10 de 42 ventas</span>
+                            <div class="pagination-controls">
+                                <button class="btn-pagination" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="btn-pagination active">1</button>
+                                <button class="btn-pagination">2</button>
+                                <button class="btn-pagination">3</button>
+                                <button class="btn-pagination">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="40px"><input type="checkbox" id="select-all-sales"></th>
+                                    <th>ID Venta</th>
+                                    <th>Vehículo</th>
+                                    <th>Cliente</th>
+                                    <th>Vendedor</th>
+                                    <th>Fecha</th>
+                                    <th>Total</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="sale-checkbox"></td>
+                                    <td>#S-0042</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Honda" alt="Honda CR-V">
+                                            <div>
+                                                <strong>Honda CR-V 2021</strong>
+                                                <small>ID: #AM-123</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Juan Pérez</td>
+                                    <td>María Gómez</td>
+                                    <td>15/10/2023</td>
+                                    <td>$28,750</td>
+                                    <td><span class="status-badge completed">Completada</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-print" title="Imprimir factura">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn-action btn-cancel" title="Cancelar venta">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="sale-checkbox"></td>
+                                    <td>#S-0041</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Chevrolet" alt="Chevrolet Camaro">
+                                            <div>
+                                                <strong>Chevrolet Camaro 2020</strong>
+                                                <small>ID: #AM-120</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>María Gómez</td>
+                                    <td>Carlos Rodríguez</td>
+                                    <td>14/10/2023</td>
+                                    <td>$35,200</td>
+                                    <td><span class="status-badge completed">Completada</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-print" title="Imprimir factura">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn-action btn-cancel" title="Cancelar venta">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="sale-checkbox"></td>
+                                    <td>#S-0040</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Volkswagen" alt="Volkswagen Tiguan">
+                                            <div>
+                                                <strong>Volkswagen Tiguan 2022</strong>
+                                                <small>ID: #AM-119</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Carlos Rodríguez</td>
+                                    <td>Juan Pérez</td>
+                                    <td>12/10/2023</td>
+                                    <td>$31,500</td>
+                                    <td><span class="status-badge completed">Completada</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-print" title="Imprimir factura">
+                                            <i class="fas fa-print"></i>
+                                        </button>
+                                        <button class="btn-action btn-cancel" title="Cancelar venta">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="sale-checkbox"></td>
+                                    <td>#S-0039</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Ford" alt="Ford Mustang">
+                                            <div>
+                                                <strong>Ford Mustang 2021</strong>
+                                                <small>ID: #AM-118</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Ana López</td>
+                                    <td>María Gómez</td>
+                                    <td>10/10/2023</td>
+                                    <td>$42,800</td>
+                                    <td><span class="status-badge pending">Pendiente</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-approve" title="Aprobar venta">
+                                            <i class="fas fa-check"></i>
+                                        </button>
+                                        <button class="btn-action btn-cancel" title="Cancelar venta">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="sale-checkbox"></td>
+                                    <td>#S-0038</td>
+                                    <td>
+                                        <div class="vehicle-info">
+                                            <img src="https://via.placeholder.com/60x40?text=Toyota" alt="Toyota RAV4">
+                                            <div>
+                                                <strong>Toyota RAV4 2022</strong>
+                                                <small>ID: #AM-117</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Luis Martínez</td>
+                                    <td>Carlos Rodríguez</td>
+                                    <td>08/10/2023</td>
+                                    <td>$34,500</td>
+                                    <td><span class="status-badge canceled">Cancelada</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver detalles">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-restore" title="Restaurar venta">
+                                            <i class="fas fa-undo"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Detalles Venta -->
+    <div class="modal" id="saleDetailsModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>Detalles de Venta #S-0042</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="sale-details">
+                    <div class="detail-section">
+                        <h4>Información de la Venta</h4>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Fecha:</span>
+                                <span class="detail-value">15/10/2023 14:30</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Estado:</span>
+                                <span class="detail-value status-badge completed">Completada</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Método de Pago:</span>
+                                <span class="detail-value">Transferencia Bancaria</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Referencia de Pago:</span>
+                                <span class="detail-value">TRF-20231015-1425</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Información del Vehículo</h4>
+                        <div class="vehicle-detail">
+                            <img src="https://via.placeholder.com/150x100?text=Honda" alt="Honda CR-V">
+                            <div class="vehicle-info">
+                                <h5>Honda CR-V 2021</h5>
+                                <div class="vehicle-specs">
+                                    <span><i class="fas fa-tachometer-alt"></i> 18,000 km</span>
+                                    <span><i class="fas fa-gas-pump"></i> Híbrido</span>
+                                    <span><i class="fas fa-car"></i> SUV</span>
+                                </div>
+                                <div class="vehicle-price">
+                                    <span class="price-label">Precio:</span>
+                                    <span class="price-value">$28,750</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Información del Cliente</h4>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Nombre:</span>
+                                <span class="detail-value">Juan Pérez</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Documento:</span>
+                                <span class="detail-value">V-12345678</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Teléfono:</span>
+                                <span class="detail-value">+1 234 567 890</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Email:</span>
+                                <span class="detail-value">juan.perez@example.com</span>
+                            </div>
+                            <div class="detail-item full-width">
+                                <span class="detail-label">Dirección:</span>
+                                <span class="detail-value">Av. Principal #123, Ciudad, Estado</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Información del Vendedor</h4>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Nombre:</span>
+                                <span class="detail-value">María Gómez</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">ID Vendedor:</span>
+                                <span class="detail-value">VEN-002</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Comisión:</span>
+                                <span class="detail-value">$1,150 (4%)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h4>Documentos</h4>
+                        <div class="documents-list">
+                            <div class="document-item">
+                                <i class="fas fa-file-contract"></i>
+                                <span>Contrato de Venta</span>
+                                <button class="btn-download">
+                                    <i class="fas fa-download"></i> Descargar
+                                </button>
+                            </div>
+                            <div class="document-item">
+                                <i class="fas fa-receipt"></i>
+                                <span>Factura #FAC-2023-0042</span>
+                                <button class="btn-download">
+                                    <i class="fas fa-download"></i> Descargar
+                                </button>
+                            </div>
+                            <div class="document-item">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                                <span>Recibo de Pago</span>
+                                <button class="btn-download">
+                                    <i class="fas fa-download"></i> Descargar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="modal-actions">
+                    <button class="btn-print">
+                        <i class="fas fa-print"></i> Imprimir Factura
+                    </button>
+                    <button class="btn-close modal-close">
+                        Cerrar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

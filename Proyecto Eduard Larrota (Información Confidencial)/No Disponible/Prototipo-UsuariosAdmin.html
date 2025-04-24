@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuarios - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesUsuariosAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="vehiculos.html">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="ventas.html">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li class="active">
+                        <a href="usuarios.html">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mensajes.html">
+                            <i class="fas fa-envelope"></i>
+                            <span>Mensajes</span>
+                            <span class="badge">5</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="configuracion.html">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar usuario...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Users Content -->
+            <section class="content-section" id="usuarios">
+                <div class="section-header">
+                    <h2>Gestión de Usuarios</h2>
+                    <button class="btn-primary" id="addUserBtn">
+                        <i class="fas fa-plus"></i> Agregar Usuario
+                    </button>
+                </div>
+                
+                <!-- User Stats -->
+                <div class="user-stats">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Total Usuarios</h3>
+                            <p>86</p>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Clientes</h3>
+                            <p>72</p>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Vendedores</h3>
+                            <p>8</p>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Administradores</h3>
+                            <p>6</p>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filtros -->
+                <div class="filters-card">
+                    <div class="filter-group">
+                        <label for="filter-role">Rol:</label>
+                        <select id="filter-role">
+                            <option value="">Todos</option>
+                            <option value="cliente">Cliente</option>
+                            <option value="vendedor">Vendedor</option>
+                            <option value="administrador">Administrador</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-status">Estado:</label>
+                        <select id="filter-status">
+                            <option value="">Todos</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                            <option value="verificado">Verificado</option>
+                            <option value="pendiente">Pendiente</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group">
+                        <label for="filter-date">Fecha Registro:</label>
+                        <select id="filter-date">
+                            <option value="">Todas las fechas</option>
+                            <option value="hoy">Hoy</option>
+                            <option value="semana">Esta semana</option>
+                            <option value="mes">Este mes</option>
+                            <option value="personalizado">Personalizado</option>
+                        </select>
+                    </div>
+                    
+                    <div class="filter-group date-range" style="display: none;">
+                        <label for="start-date">Desde:</label>
+                        <input type="date" id="start-date">
+                    </div>
+                    
+                    <div class="filter-group date-range" style="display: none;">
+                        <label for="end-date">Hasta:</label>
+                        <input type="date" id="end-date">
+                    </div>
+                    
+                    <button class="btn-filter">
+                        <i class="fas fa-filter"></i> Filtrar
+                    </button>
+                    
+                    <button class="btn-reset">
+                        <i class="fas fa-redo"></i> Reiniciar
+                    </button>
+                </div>
+                
+                <!-- Tabla de Usuarios -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <div class="table-actions">
+                            <select class="bulk-actions">
+                                <option value="">Acciones en masa</option>
+                                <option value="activate">Activar</option>
+                                <option value="deactivate">Desactivar</option>
+                                <option value="delete">Eliminar</option>
+                            </select>
+                            <button class="btn-apply">Aplicar</button>
+                        </div>
+                        
+                        <div class="table-pagination">
+                            <span>Mostrando 1-10 de 86 usuarios</span>
+                            <div class="pagination-controls">
+                                <button class="btn-pagination" disabled>
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="btn-pagination active">1</button>
+                                <button class="btn-pagination">2</button>
+                                <button class="btn-pagination">3</button>
+                                <button class="btn-pagination">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th width="40px"><input type="checkbox" id="select-all-users"></th>
+                                    <th>ID</th>
+                                    <th>Usuario</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Rol</th>
+                                    <th>Registro</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>#US-0086</td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="Juan Pérez">
+                                            <div>
+                                                <strong>Juan Pérez</strong>
+                                                <small>@juanperez</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>juan.perez@example.com</td>
+                                    <td>+1 234 567 890</td>
+                                    <td><span class="role-badge cliente">Cliente</span></td>
+                                    <td>15/10/2023</td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>#US-0085</td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="María Gómez">
+                                            <div>
+                                                <strong>María Gómez</strong>
+                                                <small>@mariagomez</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>maria.gomez@example.com</td>
+                                    <td>+1 987 654 321</td>
+                                    <td><span class="role-badge vendedor">Vendedor</span></td>
+                                    <td>10/10/2023</td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>#US-0084</td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="Carlos Rodríguez">
+                                            <div>
+                                                <strong>Carlos Rodríguez</strong>
+                                                <small>@carlosrod</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>carlos.rodriguez@example.com</td>
+                                    <td>+1 555 123 4567</td>
+                                    <td><span class="role-badge administrador">Administrador</span></td>
+                                    <td>05/10/2023</td>
+                                    <td><span class="status-badge active">Activo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-edit" title="Editar">
+                                            <i class="fas fa-edit"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>#US-0083</td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="Ana López">
+                                            <div>
+                                                <strong>Ana López</strong>
+                                                <small>@analopez</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>ana.lopez@example.com</td>
+                                    <td>+1 333 444 5555</td>
+                                    <td><span class="role-badge cliente">Cliente</span></td>
+                                    <td>01/10/2023</td>
+                                    <td><span class="status-badge pendiente">Pendiente</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-verify" title="Verificar">
+                                            <i class="fas fa-check-circle"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                
+                                <tr>
+                                    <td><input type="checkbox" class="user-checkbox"></td>
+                                    <td>#US-0082</td>
+                                    <td>
+                                        <div class="user-info">
+                                            <img src="https://via.placeholder.com/40" alt="Luis Martínez">
+                                            <div>
+                                                <strong>Luis Martínez</strong>
+                                                <small>@luismart</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>luis.martinez@example.com</td>
+                                    <td>+1 777 888 9999</td>
+                                    <td><span class="role-badge cliente">Cliente</span></td>
+                                    <td>28/09/2023</td>
+                                    <td><span class="status-badge inactivo">Inactivo</span></td>
+                                    <td>
+                                        <button class="btn-action btn-view" title="Ver">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="btn-action btn-activate" title="Activar">
+                                            <i class="fas fa-power-off"></i>
+                                        </button>
+                                        <button class="btn-action btn-delete" title="Eliminar">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal Agregar/Editar Usuario -->
+    <div class="modal" id="userModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalUserTitle">Agregar Nuevo Usuario</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="userForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nombre">Nombre *</label>
+                            <input type="text" id="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="apellido">Apellido *</label>
+                            <input type="text" id="apellido" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="telefono">Teléfono</label>
+                            <input type="tel" id="telefono">
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Nombre de usuario *</label>
+                            <input type="text" id="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña *</label>
+                            <input type="password" id="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirmar Contraseña *</label>
+                            <input type="password" id="confirm-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="rol">Rol *</label>
+                            <select id="rol" required>
+                                <option value="">Seleccionar...</option>
+                                <option value="cliente">Cliente</option>
+                                <option value="vendedor">Vendedor</option>
+                                <option value="administrador">Administrador</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="estado">Estado *</label>
+                            <select id="estado" required>
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                                <option value="pendiente">Pendiente</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="direccion">Dirección</label>
+                            <textarea id="direccion" rows="2"></textarea>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="foto">Foto de perfil</label>
+                            <input type="file" id="foto" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-submit">Guardar Usuario</button>
+                        <button type="button" class="btn-cancel modal-close">Cancelar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

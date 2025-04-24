@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehículos - Admin LRRT Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Vehicles(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li class="active"><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Gestión de Vehículos</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">2</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Vehicles Content -->
+            <div class="content-area">
+                <!-- Vehicle Actions -->
+                <div class="vehicle-actions-bar">
+                    <button id="add-vehicle-btn" class="btn-primary">
+                        <i class="fas fa-plus"></i> Agregar Vehículo
+                    </button>
+                    <div class="search-box">
+                        <input type="text" placeholder="Buscar vehículos...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="filter-dropdown">
+                        <select>
+                            <option value="">Todos los estados</option>
+                            <option value="disponible">Disponible</option>
+                            <option value="vendido">Vendido</option>
+                            <option value="reservado">Reservado</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Vehicles Table -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Listado de Vehículos</h3>
+                        <div class="pagination-info">
+                            Mostrando 1-10 de 125 vehículos
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Imagen</th>
+                                        <th>Marca/Modelo</th>
+                                        <th>Año</th>
+                                        <th>Precio</th>
+                                        <th>Estado</th>
+                                        <th>Stock</th>
+                                        <th>Fecha Ingreso</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#VH-1001</td>
+                                        <td><img src="https://via.placeholder.com/60" alt="Toyota Corolla" class="vehicle-thumb"></td>
+                                        <td>
+                                            <strong>Toyota Corolla</strong><br>
+                                            <small>Sedán - Automático</small>
+                                        </td>
+                                        <td>2022</td>
+                                        <td>COP 98'000.000</td>
+                                        <td><span class="status available">Disponible</span></td>
+                                        <td>5</td>
+                                        <td>15/05/2025</td>
+                                        <td>
+                                            <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#VH-1002</td>
+                                        <td><img src="https://via.placeholder.com/60" alt="Honda CR-V" class="vehicle-thumb"></td>
+                                        <td>
+                                            <strong>Honda CR-V</strong><br>
+                                            <small>SUV - Automático</small>
+                                        </td>
+                                        <td>2021</td>
+                                        <td>COP 110'000.000</td>
+                                        <td><span class="status reserved">Reservado</span></td>
+                                        <td>3</td>
+                                        <td>10/05/2025</td>
+                                        <td>
+                                            <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>#VH-1003</td>
+                                        <td><img src="https://via.placeholder.com/60" alt="Ford F-150" class="vehicle-thumb"></td>
+                                        <td>
+                                            <strong>Ford F-150</strong><br>
+                                            <small>Pickup - Automático</small>
+                                        </td>
+                                        <td>2023</td>
+                                        <td>COP 274'000.000</td>
+                                        <td><span class="status sold">Vendido</span></td>
+                                        <td>0</td>
+                                        <td>05/05/2025</td>
+                                        <td>
+                                            <button class="btn-action btn-edit"><i class="fas fa-edit"></i></button>
+                                            <button class="btn-action btn-delete"><i class="fas fa-trash"></i></button>
+                                            <button class="btn-action btn-view"><i class="fas fa-eye"></i></button>
+                                        </td>
+                                    </tr>
+                                    <!-- Más filas de vehículos... -->
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <!-- Pagination -->
+                        <div class="pagination">
+                            <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">12</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add/Edit Vehicle Modal -->
+            <div id="vehicle-modal" class="modal-form" style="display: none;">
+                <div class="form-container">
+                    <div class="form-header">
+                        <h3 id="modal-title">Agregar Nuevo Vehículo</h3>
+                        <button class="close-form">&times;</button>
+                    </div>
+                    <form id="vehicle-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicle-make">Marca *</label>
+                                <select id="vehicle-make" required>
+                                    <option value="">Seleccione una marca</option>
+                                    <option value="toyota">Toyota</option>
+                                    <option value="honda">Honda</option>
+                                    <option value="ford">Ford</option>
+                                    <option value="chevrolet">Chevrolet</option>
+                                    <option value="nissan">Nissan</option>
+                                    <option value="volkswagen">Volkswagen</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle-model">Modelo *</label>
+                                <input type="text" id="vehicle-model" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicle-year">Año *</label>
+                                <input type="number" id="vehicle-year" min="2000" max="2023" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle-price">Precio ($) *</label>
+                                <input type="number" id="vehicle-price" min="0" step="0.01" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicle-type">Tipo de vehículo *</label>
+                                <select id="vehicle-type" required>
+                                    <option value="">Seleccione tipo</option>
+                                    <option value="sedan">Sedán</option>
+                                    <option value="suv">SUV</option>
+                                    <option value="pickup">Pickup</option>
+                                    <option value="hatchback">Hatchback</option>
+                                    <option value="coupe">Coupé</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle-transmission">Transmisión *</label>
+                                <select id="vehicle-transmission" required>
+                                    <option value="">Seleccione tipo</option>
+                                    <option value="automatic">Automática</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicle-mileage">Kilometraje (km)</label>
+                                <input type="number" id="vehicle-mileage" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle-color">Color</label>
+                                <input type="text" id="vehicle-color">
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vehicle-stock">Stock *</label>
+                                <input type="number" id="vehicle-stock" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="vehicle-status">Estado *</label>
+                                <select id="vehicle-status" required>
+                                    <option value="available">Disponible</option>
+                                    <option value="reserved">Reservado</option>
+                                    <option value="sold">Vendido</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vehicle-description">Descripción</label>
+                            <textarea id="vehicle-description" rows="3"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="vehicle-images">Imágenes del vehículo</label>
+                            <input type="file" id="vehicle-images" accept="image/*" multiple>
+                            <small class="form-text">Puede seleccionar múltiples imágenes</small>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn-save">Guardar Vehículo</button>
+                            <button type="button" class="btn-cancel">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Confirmation Modal -->
+            <div id="confirm-modal" class="modal-form" style="display: none;">
+                <div class="confirm-container">
+                    <div class="confirm-header">
+                        <h3>Confirmar Eliminación</h3>
+                        <button class="close-confirm">&times;</button>
+                    </div>
+                    <div class="confirm-body">
+                        <p>¿Está seguro que desea eliminar este vehículo? Esta acción no se puede deshacer.</p>
+                    </div>
+                    <div class="confirm-actions">
+                        <button class="btn-confirm-delete">Eliminar</button>
+                        <button class="btn-cancel-delete">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Vehicles(Admin).js"></script>
+</body>
+</html>

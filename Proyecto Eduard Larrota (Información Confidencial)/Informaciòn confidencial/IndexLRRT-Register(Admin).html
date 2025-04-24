@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Administrador</title>
+    <link rel="stylesheet" href="StylesLRRT-Register(Admin).css">
+</head>
+<body>
+    <div class="container">
+        <h1>Registro de Administrador</h1>
+        <form id="registroForm">
+            <!-- Nombres y Apellidos -->
+            <div class="form-group">
+                <label for="nombres">Nombres</label>
+                <input type="text" id="nombres" required>
+            </div>
+            <div class="form-group">
+                <label for="apellidos">Apellidos</label>
+                <input type="text" id="apellidos" required>
+            </div>
+
+            <!-- Correo y Teléfono -->
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required>
+            </div>
+            <div class="form-group">
+                <label for="telefono">Número de teléfono</label>
+                <input type="tel" id="telefono" required>
+            </div>
+
+            <!-- Rol y Usuario -->
+            <div class="form-group">
+                <label for="rol">Rol del administrador</label>
+                <select id="rol" required>
+                    <option value="">Seleccione un rol</option>
+                    <option value="superadmin">SuperAdmin</option>
+                    <option value="inventario">Gestor de Inventario</option>
+                    <option value="ventas">Administrador de Ventas</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="usuario">Nombre de usuario</label>
+                <input type="text" id="usuario" required>
+            </div>
+
+            <!-- Contraseña -->
+            <div class="form-group">
+                <label for="password">Contraseña (mínimo 12 caracteres)</label>
+                <input type="password" id="password" required minlength="12">
+                <small>Debe incluir mayúsculas, números y símbolos.</small>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">Confirmar contraseña</label>
+                <input type="password" id="confirmPassword" required>
+            </div>
+
+            <button type="submit" class="btn-registro">Registrarse</button>
+        </form>
+    </div>
+    <script src="ScriptLRRT-Register(Admin).js"></script>
+</body>
+</html>

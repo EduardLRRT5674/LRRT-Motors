@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - LRRT Motors Admin</title>
+    <link rel="stylesheet" href="StylesDashboardAdmin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-car"></i>
+                <h1>LRRT Motors <span>Admin</span></h1>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li class="active">
+                        <a href="#">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-car"></i>
+                            <span>Vehículos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span>Ventas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-users"></i>
+                            <span>Usuarios</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Reportes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-cog"></i>
+                            <span>Configuración</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Navigation Bar -->
+            <header class="top-bar">
+                <div class="search-bar">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar...">
+                </div>
+                <div class="user-actions">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                    <div class="user-profile">
+                        <img src="https://via.placeholder.com/40" alt="Admin">
+                        <span>Admin User</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <section class="dashboard-content">
+                <h1 class="page-title">Dashboard</h1>
+                
+                <!-- Stats Overview -->
+                <div class="stats-overview">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Vehículos</h3>
+                            <p>128</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 12% este mes
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ventas</h3>
+                            <p>42</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 8% este mes
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Usuarios</h3>
+                            <p>86</p>
+                            <span class="stat-trend down">
+                                <i class="fas fa-arrow-down"></i> 2% este mes
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3>Ingresos</h3>
+                            <p>$128,950</p>
+                            <span class="stat-trend up">
+                                <i class="fas fa-arrow-up"></i> 15% este mes
+                            </span>
+                        </div>
+                        <div class="stat-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="charts-row">
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Ventas Mensuales</h3>
+                            <select class="chart-filter">
+                                <option>Últimos 6 meses</option>
+                                <option>Este año</option>
+                                <option>Todo</option>
+                            </select>
+                        </div>
+                        <div class="chart-placeholder">
+                            <!-- Aquí iría el gráfico (usarías Chart.js, Highcharts, etc.) -->
+                            <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Ventas" alt="Gráfico de Ventas">
+                        </div>
+                    </div>
+                    
+                    <div class="chart-card">
+                        <div class="card-header">
+                            <h3>Tipos de Vehículos</h3>
+                        </div>
+                        <div class="chart-placeholder">
+                            <!-- Aquí iría el gráfico de torta -->
+                            <img src="https://via.placeholder.com/600x300?text=Gráfico+de+Torta" alt="Gráfico de Torta">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-section">
+                    <div class="recent-activity">
+                        <div class="card-header">
+                            <h3>Actividad Reciente</h3>
+                            <a href="#" class="view-all">Ver todo</a>
+                        </div>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nueva venta registrada - #S-0042</p>
+                                    <span class="activity-time">Hace 15 minutos</span>
+                                </div>
+                                <div class="activity-amount">
+                                    +$28,750
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-car"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nuevo vehículo agregado - Toyota Corolla 2023</p>
+                                    <span class="activity-time">Hace 2 horas</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Nuevo usuario registrado - María Gómez</p>
+                                    <span class="activity-time">Hace 5 horas</span>
+                                </div>
+                            </div>
+                            
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-details">
+                                    <p>Vehículo verificado - Ford F-150 2019</p>
+                                    <span class="activity-time">Ayer, 15:30</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-stats">
+                        <div class="card-header">
+                            <h3>Estadísticas Rápidas</h3>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="mini-stat">
+                                <i class="fas fa-car"></i>
+                                <div>
+                                    <h4>Vehículos Activos</h4>
+                                    <p>94</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mini-stat">
+                                <i class="fas fa-clock"></i>
+                                <div>
+                                    <h4>Pendientes de Revisión</h4>
+                                    <p>12</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mini-stat">
+                                <i class="fas fa-star"></i>
+                                <div>
+                                    <h4>Vehículos Destacados</h4>
+                                    <p>8</p>
+                                </div>
+                            </div>
+                            
+                            <div class="mini-stat">
+                                <i class="fas fa-comments"></i>
+                                <div>
+                                    <h4>Consultas Sin Responder</h4>
+                                    <p>5</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="progress-section">
+                            <h4>Meta Mensual de Ventas</h4>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 65%"></div>
+                            </div>
+                            <div class="progress-info">
+                                <span>$84,817 / $130,000</span>
+                                <span>65%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>

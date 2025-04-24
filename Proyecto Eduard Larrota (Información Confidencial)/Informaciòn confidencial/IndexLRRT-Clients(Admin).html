@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Admin LRRT Motors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="StylesLRRT-Clients(Admin).css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <h1><i class="fas fa-car"></i> LRRT Motors</h1>
+                <p>Panel de Administración</p>
+            </div>
+            <nav class="admin-nav">
+                <ul>
+                    <li><a href="IndexLRRT-Dashboard(Admin).html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                    <li><a href="IndexLRRT-Vehicles(Admin).html"><i class="fas fa-car"></i> Vehículos</a></li>
+                    <li><a href="IndexLRRT-Sales(Admin).html"><i class="fas fa-chart-line"></i> Ventas</a></li>
+                    <li class="active"><a href="IndexLRRT-Clients(Admin).html"><i class="fas fa-users"></i> Clientes</a></li>
+                    <li><a href="IndexLRRT-Sellers(Admin).html"><i class="fas fa-user-tie"></i> Vendedores</a></li>
+                    <li><a href="IndexLRRT-Reports(Admin).html"><i class="fas fa-file-alt"></i> Reportes</a></li>
+                    <li><a href="IndexLRRT-Settings-General(Admin).html"><i class="fas fa-cog"></i> Configuración</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Header -->
+            <header class="admin-header">
+                <div class="header-left">
+                    <button id="menu-toggle" class="menu-btn"><i class="fas fa-bars"></i></button>
+                    <h2>Gestión de Clientes</h2>
+                </div>
+                <div class="header-right">
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="badge">3</span>
+                    </div>
+                    <div class="admin-profile">
+                        <img src="vjuwsmnbvez.png" alt="Admin">
+                        <span>Admin</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Clients Content -->
+            <div class="content-area">
+                <!-- Clients Summary -->
+                <div class="clients-summary">
+                    <div class="summary-card total">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>89</h3>
+                            <p>Clientes Totales</p>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> 15%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card active">
+                        <div class="card-icon">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>72</h3>
+                            <p>Clientes Activos</p>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> 8%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card potential">
+                        <div class="card-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>24</h3>
+                            <p>Clientes Potenciales</p>
+                            <span class="trend up"><i class="fas fa-arrow-up"></i> 5%</span>
+                        </div>
+                    </div>
+                    <div class="summary-card new">
+                        <div class="card-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <div class="card-info">
+                            <h3>12</h3>
+                            <p>Nuevos este Mes</p>
+                            <span class="trend down"><i class="fas fa-arrow-down"></i> 2%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clients Actions -->
+                <div class="clients-actions">
+                    <button id="new-client-btn" class="btn btn-primary">
+                        <i class="fas fa-plus"></i> Nuevo Cliente
+                    </button>
+                    <div class="filters">
+                        <div class="search-box">
+                            <input type="text" placeholder="Buscar clientes...">
+                            <button class="btn btn-search"><i class="fas fa-search"></i></button>
+                        </div>
+                        <div class="status-filter">
+                            <select id="client-status">
+                                <option value="">Todos los estados</option>
+                                <option value="active">Activo</option>
+                                <option value="potential">Potencial</option>
+                                <option value="inactive">Inactivo</option>
+                            </select>
+                        </div>
+                        <div class="type-filter">
+                            <select id="client-type">
+                                <option value="">Todos los tipos</option>
+                                <option value="individual">Individual</option>
+                                <option value="business">Empresa</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Clients Table -->
+                <div class="clients-table-container">
+                    <div class="table-header">
+                        <h3>Listado de Clientes</h3>
+                        <div class="table-actions">
+                            <button class="btn btn-export"><i class="fas fa-file-export"></i> Exportar</button>
+                            <div class="pagination-info">
+                                Mostrando 1-10 de 89 clientes
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="clients-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Nombre</th>
+                                    <th>Tipo</th>
+                                    <th>Teléfono</th>
+                                    <th>Email</th>
+                                    <th>Compras</th>
+                                    <th>Última Visita</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#CL-1001</td>
+                                    <td>
+                                        <div class="client-avatar">
+                                            <img src="vjuwsmnbvez.png" alt="Juan Pérez">
+                                        </div>
+                                        <span>Juan Pérez</span>
+                                    </td>
+                                    <td>Individual</td>
+                                    <td>+1 234 567 890</td>
+                                    <td>juan.perez@email.com</td>
+                                    <td>3</td>
+                                    <td>15/06/2023</td>
+                                    <td><span class="badge active">Activo</span></td>
+                                    <td class="actions">
+                                        <button class="btn btn-view"><i class="fas fa-eye"></i></button>
+                                        <button class="btn btn-edit"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-delete"><i class="fas fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- Más filas de clientes... -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-footer">
+                        <div class="pagination">
+                            <button class="page-btn disabled"><i class="fas fa-chevron-left"></i></button>
+                            <button class="page-btn active">1</button>
+                            <button class="page-btn">2</button>
+                            <button class="page-btn">3</button>
+                            <span class="page-dots">...</span>
+                            <button class="page-btn">9</button>
+                            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- New Client Modal -->
+            <div id="new-client-modal" class="modal">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>Registrar Nuevo Cliente</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="new-client-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="client-type">Tipo de Cliente *</label>
+                                    <select id="client-type" required>
+                                        <option value="">Seleccionar tipo</option>
+                                        <option value="individual">Individual</option>
+                                        <option value="business">Empresa</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="first-name">Nombre(s) *</label>
+                                    <input type="text" id="first-name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="last-name">Apellido(s) *</label>
+                                    <input type="text" id="last-name" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row company-fields" style="display: none;">
+                                <div class="form-group">
+                                    <label for="company-name">Nombre de Empresa</label>
+                                    <input type="text" id="company-name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="company-position">Cargo</label>
+                                    <input type="text" id="company-position">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="email">Email *</label>
+                                    <input type="email" id="email" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="phone">Teléfono *</label>
+                                    <input type="tel" id="phone" required>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="address">Dirección</label>
+                                    <input type="text" id="address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">Ciudad</label>
+                                    <input type="text" id="city">
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="status">Estado *</label>
+                                    <select id="status" required>
+                                        <option value="active">Activo</option>
+                                        <option value="potential">Potencial</option>
+                                        <option value="inactive">Inactivo</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="source">¿Cómo nos conoció?</label>
+                                    <select id="source">
+                                        <option value="">Seleccionar</option>
+                                        <option value="web">Sitio Web</option>
+                                        <option value="social">Redes Sociales</option>
+                                        <option value="referral">Recomendación</option>
+                                        <option value="event">Evento</option>
+                                        <option value="other">Otro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="notes">Notas</label>
+                                <textarea id="notes" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-save">Guardar Cliente</button>
+                                <button type="button" class="btn btn-cancel">Cancelar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Client Detail Modal -->
+            <div id="client-detail-modal" class="modal">
+                <div class="modal-content wide">
+                    <div class="modal-header">
+                        <h3>Detalle del Cliente #CL-1001</h3>
+                        <button class="close-modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="client-detail">
+                            <div class="client-header">
+                                <div class="client-avatar large">
+                                    <img src="vjuwsmnbvez.png" alt="Juan Pérez">
+                                </div>
+                                <div class="client-info">
+                                    <h4>Juan Pérez</h4>
+                                    <p class="client-meta">
+                                        <span><i class="fas fa-user-tag"></i> Cliente Individual</span>
+                                        <span><i class="fas fa-calendar-alt"></i> Registrado: 15/03/2022</span>
+                                        <span><i class="fas fa-star"></i> 3 compras</span>
+                                    </p>
+                                    <div class="client-status">
+                                        <span class="badge active">Activo</span>
+                                    </div>
+                                </div>
+                                <div class="client-actions">
+                                    <button class="btn btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                    <button class="btn btn-message"><i class="fas fa-envelope"></i> Enviar Mensaje</button>
+                                </div>
+                            </div>
+                            
+                            <div class="client-tabs">
+                                <div class="tabs-header">
+                                    <button class="tab-btn active" data-tab="info">Información</button>
+                                    <button class="tab-btn" data-tab="sales">Compras (3)</button>
+                                    <button class="tab-btn" data-tab="interactions">Interacciones</button>
+                                    <button class="tab-btn" data-tab="documents">Documentos</button>
+                                </div>
+                                
+                                <div class="tabs-content">
+                                    <div id="info-tab" class="tab-pane active">
+                                        <div class="info-grid">
+                                            <div class="info-section">
+                                                <h5>Información de Contacto</h5>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-envelope"></i> Email:</span>
+                                                    <span class="info-value">juan.perez@email.com</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-phone"></i> Teléfono:</span>
+                                                    <span class="info-value">+1 234 567 890</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-map-marker-alt"></i> Dirección:</span>
+                                                    <span class="info-value">Calle Principal 123, Ciudad, País</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="info-section">
+                                                <h5>Información Adicional</h5>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-globe"></i> Fuente:</span>
+                                                    <span class="info-value">Sitio Web</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-calendar-check"></i> Última Visita:</span>
+                                                    <span class="info-value">15/06/2023</span>
+                                                </div>
+                                                <div class="info-item">
+                                                    <span class="info-label"><i class="fas fa-car"></i> Vehículo de Interés:</span>
+                                                    <span class="info-value">SUV, Pickup</span>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="info-section notes">
+                                                <h5>Notas</h5>
+                                                <p>Cliente preferente con historial de 3 compras en los últimos 2 años. Prefiere vehículos familiares con espacio amplio.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Otras pestañas (sales, interactions, documents) -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="ScriptLRRT-Clients(Admin).js"></script>
+</body>
+</html>

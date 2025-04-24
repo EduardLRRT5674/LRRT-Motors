@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoMarket - Mi Cuenta</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="user.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Auto<span>Market</span></a>
+            <div class="nav-links">
+                <a href="index.html">Inicio</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="vender.html">Vender</a>
+                <a href="#contacto">Contacto</a>
+                <div class="user-menu">
+                    <button class="user-dropdown">
+                        <img src="vjuwsmnbvez.png" alt="Usuario">
+                        <span>Juan Pérez</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="user.html"><i class="fas fa-user"></i> Mi Cuenta</a>
+                        <a href="mis-vehiculos.html"><i class="fas fa-car"></i> Mis Vehículos</a>
+                        <a href="favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+                        <a href="mensajes.html"><i class="fas fa-envelope"></i> Mensajes</a>
+                        <a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
+            <button class="hamburger"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Contenido principal -->
+    <main class="user-container">
+        <div class="container">
+            <div class="user-sidebar">
+                <div class="user-profile">
+                    <img src="vj" alt="Usuario">
+                    <h3>Juan Pérez</h3>
+                    <p class="user-role">Vendedor</p>
+                    <p class="user-joined">Miembro desde: Enero 2023</p>
+                </div>
+                
+                <nav class="user-menu">
+                    <ul>
+                        <li class="active">
+                            <a href="user.html"><i class="fas fa-user"></i> Mi Perfil</a>
+                        </li>
+                        <li>
+                            <a href="mis-vehiculos.html"><i class="fas fa-car"></i> Mis Vehículos</a>
+                        </li>
+                        <li>
+                            <a href="favoritos.html"><i class="fas fa-heart"></i> Favoritos</a>
+                        </li>
+                        <li>
+                            <a href="mensajes.html"><i class="fas fa-envelope"></i> Mensajes <span class="badge">3</span></a>
+                        </li>
+                        <li>
+                            <a href="configuracion.html"><i class="fas fa-cog"></i> Configuración</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            
+            <div class="user-content">
+                <div class="content-header">
+                    <h2><i class="fas fa-user"></i> Mi Perfil</h2>
+                    <button class="btn btn-primary btn-edit-profile">
+                        <i class="fas fa-edit"></i> Editar Perfil
+                    </button>
+                </div>
+                
+                <div class="profile-section">
+                    <div class="profile-info">
+                        <div class="info-item">
+                            <label>Nombre Completo</label>
+                            <p>Juan Carlos Pérez González</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Nombre de Usuario</label>
+                            <p>juanperez</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Correo Electrónico</label>
+                            <p>juan.perez@example.com</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Teléfono</label>
+                            <p>+1 234 567 890</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Ubicación</label>
+                            <p>Ciudad de México, México</p>
+                        </div>
+                        <div class="info-item">
+                            <label>Biografía</label>
+                            <p>Vendedor profesional de vehículos con más de 10 años de experiencia. Especializado en vehículos de lujo y clásicos.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="profile-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-car"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>12</h3>
+                                <p>Vehículos Publicados</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>8</h3>
+                                <p>Vehículos Vendidos</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>4.8</h3>
+                                <p>Calificación</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-section">
+                    <h3><i class="fas fa-car"></i> Mis Vehículos Recientes</h3>
+                    <div class="user-vehicles">
+                        <div class="vehicle-card">
+                            <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+                                <span class="vehicle-status sold">Vendido</span>
+                            </div>
+                            <div class="vehicle-info">
+                                <h4>Honda Civic 2018</h4>
+                                <div class="vehicle-meta">
+                                    <span><i class="fas fa-tachometer-alt"></i> 35,000 km</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Publicado: 15/03/2023</span>
+                                </div>
+                                <div class="vehicle-price">$20,000</div>
+                                <div class="vehicle-actions">
+                                    <button class="btn-action btn-view"><i class="fas fa-eye"></i> Ver</button>
+                                    <button class="btn-action btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="vehicle-card">
+                            <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1605559424843-9e4c228bf1c2?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+                                <span class="vehicle-status active">Activo</span>
+                            </div>
+                            <div class="vehicle-info">
+                                <h4>Toyota Corolla 2020</h4>
+                                <div class="vehicle-meta">
+                                    <span><i class="fas fa-tachometer-alt"></i> 15,000 km</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Publicado: 10/04/2023</span>
+                                </div>
+                                <div class="vehicle-price">$25,000</div>
+                                <div class="vehicle-actions">
+                                    <button class="btn-action btn-view"><i class="fas fa-eye"></i> Ver</button>
+                                    <button class="btn-action btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="vehicle-card">
+                            <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+                                <span class="vehicle-status pending">Pendiente</span>
+                            </div>
+                            <div class="vehicle-info">
+                                <h4>Toyota Hilux 2020</h4>
+                                <div class="vehicle-meta">
+                                    <span><i class="fas fa-tachometer-alt"></i> 25,000 km</span>
+                                    <span><i class="fas fa-calendar-alt"></i> Publicado: 05/05/2023</span>
+                                </div>
+                                <div class="vehicle-price">$38,000</div>
+                                <div class="vehicle-actions">
+                                    <button class="btn-action btn-view"><i class="fas fa-eye"></i> Ver</button>
+                                    <button class="btn-action btn-edit"><i class="fas fa-edit"></i> Editar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="mis-vehiculos.html" class="btn btn-outline view-all">Ver todos mis vehículos</a>
+                </div>
+                
+                <div class="profile-section">
+                    <h3><i class="fas fa-heart"></i> Mis Favoritos Recientes</h3>
+                    <div class="user-favorites">
+                        <div class="vehicle-card">
+                            <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1542362567-b07e54358753?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+                                <button class="favorite-btn active"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <div class="vehicle-info">
+                                <h4>Ford Mustang 2019</h4>
+                                <div class="vehicle-meta">
+                                    <span><i class="fas fa-tachometer-alt"></i> 12,000 km</span>
+                                    <span><i class="fas fa-user"></i> Vendedor: AutoLux</span>
+                                </div>
+                                <div class="vehicle-price">$35,000</div>
+                                <div class="vehicle-actions">
+                                    <button class="btn-action btn-view"><i class="fas fa-eye"></i> Ver</button>
+                                    <button class="btn-action btn-contact"><i class="fas fa-envelope"></i> Contactar</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="vehicle-card">
+                            <div class="vehicle-image" style="background-image: url('https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80')">
+                                <button class="favorite-btn active"><i class="fas fa-heart"></i></button>
+                            </div>
+                            <div class="vehicle-info">
+                                <h4>Yamaha YZF-R3 2021</h4>
+                                <div class="vehicle-meta">
+                                    <span><i class="fas fa-tachometer-alt"></i> 3,000 km</span>
+                                    <span><i class="fas fa-user"></i> Vendedor: MotoWorld</span>
+                                </div>
+                                <div class="vehicle-price">$5,500</div>
+                                <div class="vehicle-actions">
+                                    <button class="btn-action btn-view"><i class="fas fa-eye"></i> Ver</button>
+                                    <button class="btn-action btn-contact"><i class="fas fa-envelope"></i> Contactar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="favoritos.html" class="btn btn-outline view-all">Ver todos mis favoritos</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal de edición de perfil -->
+    <div id="edit-profile-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Editar Perfil</h2>
+            
+            <form id="profile-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nombre</label>
+                        <input type="text" id="first-name" value="Juan Carlos" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Apellido</label>
+                        <input type="text" id="last-name" value="Pérez González" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label>Nombre de usuario</label>
+                    <input type="text" id="username" value="juanperez" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Correo electrónico</label>
+                    <input type="email" id="email" value="juan.perez@example.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Teléfono</label>
+                    <input type="tel" id="phone" value="+1 234 567 890">
+                </div>
+                
+                <div class="form-group">
+                    <label>Ubicación</label>
+                    <input type="text" id="location" value="Ciudad de México, México">
+                </div>
+                
+                <div class="form-group">
+                    <label>Biografía</label>
+                    <textarea id="bio" rows="4">Vendedor profesional de vehículos con más de 10 años de experiencia. Especializado en vehículos de lujo y clásicos.</textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Foto de perfil</label>
+                    <input type="file" id="profile-photo" accept="image/*">
+                    <div class="image-preview" id="profile-photo-preview">
+                        <div class="image-preview-item" style="background-image: url('https://randomuser.me/api/portraits/men/32.jpg')">
+                            <span class="remove-img">&times;</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="form-actions">
+                    <button type="button" class="btn btn-outline cancel-edit">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>AutoMarket</h3>
+                    <p>La plataforma líder en compra y venta de vehículos en línea. Conectamos compradores y vendedores de forma segura y eficiente.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="vehiculos.html">Vehículos</a></li>
+                        <li><a href="vender.html">Vender</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Mi Cuenta</h3>
+                    <ul>
+                        <li><a href="user.html">Mi Perfil</a></li>
+                        <li><a href="mis-vehiculos.html">Mis Vehículos</a></li>
+                        <li><a href="favoritos.html">Favoritos</a></li>
+                        <li><a href="configuracion.html">Configuración</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> contacto@automarket.com</li>
+                        <li><i class="fas fa-phone"></i> +1 234 567 890</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Principal 123, CDMX</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 AutoMarket. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="user.js"></script>
+</body>
+</html>
